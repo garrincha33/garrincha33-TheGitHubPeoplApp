@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//step 2 - create faves controller
+
 class FavouritesController: UIViewController {
     
     override func viewDidLoad() {

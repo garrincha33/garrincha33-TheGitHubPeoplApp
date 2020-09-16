@@ -8,32 +8,33 @@
 
 import UIKit
 
-//step 1 create uibutton class for custom button
+
 
 class RPUIButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configure()
-        
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //step 3 create a custom init
+    
+    
     init(backgroundColor: UIColor, title: String) {
         super.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
+        configure()
     }
     
-    //step 2 create a configure button which will do the customisation for us
+    
     private func configure() {
-        layer.cornerRadius = 10
-        titleLabel?.textColor = .white
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        layer.cornerRadius      = 10
+        titleLabel?.textColor   = .white
+        titleLabel?.font        = UIFont.preferredFont(forTextStyle: .headline)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
