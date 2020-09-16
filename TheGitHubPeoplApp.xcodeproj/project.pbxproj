@@ -15,6 +15,8 @@
 		1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59D5251212EC00931C90 /* MainTabBarController.swift */; };
 		1BDB59D8251214FF00931C90 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59D7251214FF00931C90 /* SearchController.swift */; };
 		1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59D92512151300931C90 /* FavouritesController.swift */; };
+		1BDB59DD2512302200931C90 /* RPUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59DC2512302200931C90 /* RPUIButton.swift */; };
+		1BDB59DF2512302F00931C90 /* RPUITextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59DE2512302F00931C90 /* RPUITextfield.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1BDB59D5251212EC00931C90 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1BDB59D7251214FF00931C90 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		1BDB59D92512151300931C90 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
+		1BDB59DC2512302200931C90 /* RPUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUIButton.swift; sourceTree = "<group>"; };
+		1BDB59DE2512302F00931C90 /* RPUITextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUITextfield.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		1BDB59BD2511FFDE00931C90 /* TheGitHubPeoplApp */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB59DB2512300900931C90 /* Custom */,
 				1BDB59D4251212D900931C90 /* Controller */,
 				1BDB59D3251212D500931C90 /* View */,
 				1BDB59D2251212CB00931C90 /* Model */,
@@ -95,6 +100,15 @@
 				1BDB59D92512151300931C90 /* FavouritesController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1BDB59DB2512300900931C90 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1BDB59DC2512302200931C90 /* RPUIButton.swift */,
+				1BDB59DE2512302F00931C90 /* RPUITextfield.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +187,8 @@
 				1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */,
+				1BDB59DD2512302200931C90 /* RPUIButton.swift in Sources */,
+				1BDB59DF2512302F00931C90 /* RPUITextfield.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
