@@ -8,7 +8,6 @@
 
 import UIKit
 
-//step 4 - create a uitextField class for custom field
 class RPUITextfield: UITextField {
     
     override init(frame: CGRect) {
@@ -27,7 +26,7 @@ class RPUITextfield: UITextField {
         
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.cornerRadius = 1
+        layer.cornerRadius = 10
         layer.borderWidth = 2
         layer.borderColor = UIColor.systemGray4.cgColor
         
@@ -39,7 +38,7 @@ class RPUITextfield: UITextField {
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
         
-        placeholder = "Enter A Username"
+        placeholder = "Enter a username"
         
         
         
