@@ -32,7 +32,8 @@ class SearchController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+        //step 4 bug fix
+         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     private func dismissKeyboardTap() {
