@@ -7,11 +7,9 @@
 //
 
 import UIKit
-//step 7 create the alert controller
 
 class RPAlertController: UIViewController {
-    
-    //step 8 create and empty container view and intialize lables and button
+
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -30,16 +28,15 @@ class RPAlertController: UIViewController {
     var message: String?
     var buttonTitle: String?
     let padding: CGFloat = 20
-    
-    //step 9 custom init
+
     init(title: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
         self.alertTitle = title
         self.message = message
         self.buttonTitle = buttonTitle
     }
-    
-    //step 11 - setup dismiss func
+    //MARK:- Dismiss
+
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
@@ -50,15 +47,12 @@ class RPAlertController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         //step 10 set background
+
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
-        //step 11 
         setupUI()
         
-        
     }
-    //step 11 create setup function and call
+    //MARK:- UISetup
     private func setupUI() {
         view.addSubview(containerView)
         NSLayoutConstraint.activate([
@@ -69,7 +63,7 @@ class RPAlertController: UIViewController {
         ])
         
         containerView.addSubview(titleLable)
-        titleLable.text = alertTitle ?? ControllerItem.GHAlertMessage
+        titleLable.text = alertTitle ?? ControllerItem.GHAlertMessageNoUsername
         titleLable.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding).isActive = true
         titleLable.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding).isActive = true
         titleLable.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding).isActive = true

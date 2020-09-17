@@ -15,10 +15,15 @@ class FollowerListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .purple
-        navigationController?.isNavigationBarHidden = false
+        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
+    }
+    
+    //step 3 take out nav from view did load, bug fix
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 }
