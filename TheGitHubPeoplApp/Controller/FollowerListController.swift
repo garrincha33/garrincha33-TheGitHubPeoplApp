@@ -8,8 +8,6 @@
 
 import UIKit
 
-//step 5 - create follower list controller
-
 class FollowerListController: UIViewController {
     
     var username: String?

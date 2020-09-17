@@ -36,7 +36,6 @@ class RPUITextfield: UITextField {
         minimumFontSize = 12
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
-        //step 2 changing the keyboards return key text
         returnKeyType = .go
         placeholder = "Enter a username"  
     }
