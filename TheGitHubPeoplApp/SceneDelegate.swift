@@ -22,6 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
+        configureNavBar()
+    }
+    
+    //step 9 - set tint color for default buttons, instead of the default blue and call in scene above
+    func configureNavBar() {
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
