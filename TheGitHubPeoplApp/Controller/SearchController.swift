@@ -44,8 +44,7 @@ class SearchController: UIViewController {
     
     @objc private func gotoFollowerController() {
         guard isUsernameEntered else {
-            //step 12 - call your new alert
-            presentRPAlertOnMainThread(title: ControllerItem.GHAlertEmpty, message: ControllerItem.GHAlertMessageUsername, buttonTitle: ControllerItem.GHOKText)
+            presentRPAlertOnMainThread(title: ControllerItem.GHAlertIsEmpty, message: ControllerItem.GHAlertMessageNoUsername, buttonTitle: ControllerItem.GHOKText)
             return
         }
         
@@ -54,7 +53,7 @@ class SearchController: UIViewController {
         controller.title = usernameTextField.text
         navigationController?.pushViewController(controller, animated: true)
     }
-
+    //MARK:- UISetup
     private func setupUI() {
         //MARK:- Logo
         view.addSubview(logoImageView)

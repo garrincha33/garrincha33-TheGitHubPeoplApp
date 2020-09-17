@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//step 1 create custom title lable for reuse
 
 class RPTitleLable: UILabel {
     
@@ -16,7 +15,7 @@ class RPTitleLable: UILabel {
         configure()
         
     }
-    //step 2 create our own custom init
+
     init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
@@ -27,8 +26,7 @@ class RPTitleLable: UILabel {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //step 3 - custom setup
+
     private func configure() {
         textColor = .label
         adjustsFontSizeToFitWidth = true

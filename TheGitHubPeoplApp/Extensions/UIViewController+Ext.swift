@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//step 12 create extension yo use alert thoughout the app, using our custom alert
+
 extension UIViewController {
     func presentRPAlertOnMainThread(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
@@ -16,7 +16,5 @@ extension UIViewController {
             alertVC.modalTransitionStyle = .crossDissolve
             self.present(alertVC, animated: true)
         }
-        
     }
-    
 }
