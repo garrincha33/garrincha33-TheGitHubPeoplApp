@@ -20,8 +20,7 @@ class RPUITextfield: UITextField {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //step 5 - create a configure method tro call for creating the custom text field
+
     private func configure() {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -37,12 +36,9 @@ class RPUITextfield: UITextField {
         minimumFontSize = 12
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
-        
-        placeholder = "Enter a username"
-        
-        
-        
-        
+        //step 2 changing the keyboards return key text
+        returnKeyType = .go
+        placeholder = "Enter a username"  
     }
     
 }
