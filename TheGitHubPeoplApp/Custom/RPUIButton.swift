@@ -30,7 +30,6 @@ class RPUIButton: UIButton {
         configure()
     }
     
-    
     private func configure() {
         layer.cornerRadius      = 10
         titleLabel?.textColor   = .white

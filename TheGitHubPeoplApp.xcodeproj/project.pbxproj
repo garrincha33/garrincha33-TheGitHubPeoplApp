@@ -20,6 +20,10 @@
 		1BDB59E22512593400931C90 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59E12512593400931C90 /* Types.swift */; };
 		1BDB59E42513426400931C90 /* FollowerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59E32513426400931C90 /* FollowerListController.swift */; };
 		1BDB59E72513496800931C90 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59E62513496800931C90 /* String+Ext.swift */; };
+		1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59E82513518700931C90 /* RPTitleLable.swift */; };
+		1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EA251352E500931C90 /* RPBodyLable.swift */; };
+		1BDB59ED2513547F00931C90 /* RPAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EC2513547F00931C90 /* RPAlertController.swift */; };
+		1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		1BDB59E12512593400931C90 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		1BDB59E32513426400931C90 /* FollowerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListController.swift; sourceTree = "<group>"; };
 		1BDB59E62513496800931C90 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		1BDB59E82513518700931C90 /* RPTitleLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTitleLable.swift; sourceTree = "<group>"; };
+		1BDB59EA251352E500931C90 /* RPBodyLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLable.swift; sourceTree = "<group>"; };
+		1BDB59EC2513547F00931C90 /* RPAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertController.swift; sourceTree = "<group>"; };
+		1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 				1BDB59D7251214FF00931C90 /* SearchController.swift */,
 				1BDB59D92512151300931C90 /* FavouritesController.swift */,
 				1BDB59E32513426400931C90 /* FollowerListController.swift */,
+				1BDB59EC2513547F00931C90 /* RPAlertController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,6 +125,8 @@
 			children = (
 				1BDB59DC2512302200931C90 /* RPUIButton.swift */,
 				1BDB59DE2512302F00931C90 /* RPUITextfield.swift */,
+				1BDB59E82513518700931C90 /* RPTitleLable.swift */,
+				1BDB59EA251352E500931C90 /* RPBodyLable.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1BDB59E62513496800931C90 /* String+Ext.swift */,
+				1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,10 +219,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */,
+				1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */,
+				1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */,
+				1BDB59ED2513547F00931C90 /* RPAlertController.swift in Sources */,
 				1BDB59D8251214FF00931C90 /* SearchController.swift in Sources */,
 				1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */,
 				1BDB59E42513426400931C90 /* FollowerListController.swift in Sources */,
 				1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */,
+				1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */,
 				1BDB59E22512593400931C90 /* Types.swift in Sources */,
