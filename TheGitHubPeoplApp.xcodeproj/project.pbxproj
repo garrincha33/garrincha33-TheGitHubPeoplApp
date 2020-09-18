@@ -24,7 +24,6 @@
 		1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EA251352E500931C90 /* RPBodyLable.swift */; };
 		1BDB59ED2513547F00931C90 /* RPAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EC2513547F00931C90 /* RPAlertController.swift */; };
 		1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */; };
-		1BDB59F12513A60E00931C90 /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F02513A60E00931C90 /* Followers.swift */; };
 		1BDB59F32513A61700931C90 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F22513A61700931C90 /* Users.swift */; };
 		1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F52513ADED00931C90 /* NetworkManager.swift */; };
 		1BDB59F82513AE1900931C90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F72513AE1900931C90 /* Constants.swift */; };
@@ -33,6 +32,7 @@
 		1BDB59FF2514B3F500931C90 /* CustomFollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */; };
 		1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A002514B47600931C90 /* RPImageView.swift */; };
 		1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A032514B95800931C90 /* ConfigureCell.swift */; };
+		1BDB5A062514E82000931C90 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A052514E82000931C90 /* Follower.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,6 @@
 		1BDB59EA251352E500931C90 /* RPBodyLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBodyLable.swift; sourceTree = "<group>"; };
 		1BDB59EC2513547F00931C90 /* RPAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertController.swift; sourceTree = "<group>"; };
 		1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		1BDB59F02513A60E00931C90 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
 		1BDB59F22513A61700931C90 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		1BDB59F52513ADED00931C90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1BDB59F72513AE1900931C90 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFollowerCell.swift; sourceTree = "<group>"; };
 		1BDB5A002514B47600931C90 /* RPImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImageView.swift; sourceTree = "<group>"; };
 		1BDB5A032514B95800931C90 /* ConfigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCell.swift; sourceTree = "<group>"; };
+		1BDB5A052514E82000931C90 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		1BDB59D2251212CB00931C90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1BDB59F02513A60E00931C90 /* Followers.swift */,
+				1BDB5A052514E82000931C90 /* Follower.swift */,
 				1BDB59F22513A61700931C90 /* Users.swift */,
 			);
 			path = Model;
@@ -281,7 +281,6 @@
 				1BDB59FB25149AFC00931C90 /* ErrorMessages.swift in Sources */,
 				1BDB59E42513426400931C90 /* FollowerListController.swift in Sources */,
 				1BDB59FD2514ABB800931C90 /* BaseListController.swift in Sources */,
-				1BDB59F12513A60E00931C90 /* Followers.swift in Sources */,
 				1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */,
 				1BDB59F32513A61700931C90 /* Users.swift in Sources */,
 				1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */,
@@ -290,6 +289,7 @@
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */,
 				1BDB59E22512593400931C90 /* Types.swift in Sources */,
+				1BDB5A062514E82000931C90 /* Follower.swift in Sources */,
 				1BDB59DD2512302200931C90 /* RPUIButton.swift in Sources */,
 				1BDB59DF2512302F00931C90 /* RPUITextfield.swift in Sources */,
 				1BDB59E72513496800931C90 /* String+Ext.swift in Sources */,

@@ -8,21 +8,13 @@
 
 import UIKit
 
-class CustomFollowerCell: UICollectionViewCell {
+class CustomFollowerCell: UICollectionViewCell, ConfigureCell {
+    
+    func configure(with followers: Follower) {
+        usernameLable.text = followers.login
+    }
     
     static let reuseIdentifier = "followers"
-    
-//    func configure(with followers: Followers) {
-//        usernameLable.text = followers.login
-//    }
-//
-    var followerItems: Followers! {
-        didSet {
-            
-            usernameLable.text = followerItems.login
-            
-        }
-    }
 
     let avatarImageView = RPImageView(frame: .zero)
     let usernameLable = RPTitleLable(textAlignment: .center, fontSize: 16)
@@ -31,23 +23,29 @@ class CustomFollowerCell: UICollectionViewCell {
         super.init(frame: frame)
         
         configure()
-        
-        
+ 
     }
     
+//    func set(follower: Follower) {
+//        usernameLable.text = follower.login
+//    }
+    
     private func configure() {
-        let padding: CGFloat = 8
         addSubview(avatarImageView)
-        avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding).isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding).isActive = true
-        avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding).isActive = true
-        avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor).isActive = true
-        
         addSubview(usernameLable)
-        usernameLable.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12).isActive = true
-        usernameLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
-        usernameLable.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
-        usernameLable.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        let padding: CGFloat = 8
+        //step 3 xcode bug with other way of adding contraints, changing to this resolves render error
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
+            
+            usernameLable.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12),
+            usernameLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            usernameLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            usernameLable.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
     
     required init?(coder: NSCoder) {

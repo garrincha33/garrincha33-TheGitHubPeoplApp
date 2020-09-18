@@ -55,6 +55,7 @@ class RPAlertController: UIViewController {
     //MARK:- UISetup
     private func setupUI() {
         view.addSubview(containerView)
+        
         NSLayoutConstraint.activate([
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -12,6 +12,6 @@ protocol ConfigureCell {
     
     static var reuseIdentifier: String {get}
     
-    func configure(with followers: Followers)
+    func configure(with followers: Follower)
     
 }
