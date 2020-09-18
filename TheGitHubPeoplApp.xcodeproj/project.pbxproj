@@ -28,6 +28,7 @@
 		1BDB59F32513A61700931C90 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F22513A61700931C90 /* Users.swift */; };
 		1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F52513ADED00931C90 /* NetworkManager.swift */; };
 		1BDB59F82513AE1900931C90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F72513AE1900931C90 /* Constants.swift */; };
+		1BDB59FB25149AFC00931C90 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		1BDB59F22513A61700931C90 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		1BDB59F52513ADED00931C90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1BDB59F72513AE1900931C90 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		1BDB59BD2511FFDE00931C90 /* TheGitHubPeoplApp */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB59F925149ACF00931C90 /* Enums */,
 				1BDB59F42513ADD400931C90 /* Networking */,
 				1BDB59E52513496000931C90 /* Extensions */,
 				1BDB59E02512591300931C90 /* Types */,
@@ -168,6 +171,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		1BDB59F925149ACF00931C90 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +257,7 @@
 				1BDB59ED2513547F00931C90 /* RPAlertController.swift in Sources */,
 				1BDB59D8251214FF00931C90 /* SearchController.swift in Sources */,
 				1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */,
+				1BDB59FB25149AFC00931C90 /* ErrorMessages.swift in Sources */,
 				1BDB59E42513426400931C90 /* FollowerListController.swift in Sources */,
 				1BDB59F12513A60E00931C90 /* Followers.swift in Sources */,
 				1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */,
