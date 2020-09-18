@@ -10,7 +10,6 @@ import UIKit
 
 class FollowerListController: UIViewController {
 
-    //step 1 create a colelction view
     var collectionView: UICollectionView!
     var username: String?
     fileprivate let padding: CGFloat = 16
@@ -26,13 +25,28 @@ class FollowerListController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
-    //step 2 configure collectionView
+
+    //step 2 add to your collectionView
     private func configureCollectionViewController() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemPink
         collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
+    }
+    //step 1 create a custom flow layout
+    private func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
+        let width =  view.bounds.width
+        let padding: CGFloat = 12
+        let minItemSpacing: CGFloat = 10
+        let availableWidth = width - (padding * 2) - (minItemSpacing * 2)
+        let itemWidth = availableWidth / 3
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
+        
+        return flowLayout
+        
+        
     }
 
     
