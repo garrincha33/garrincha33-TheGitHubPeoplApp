@@ -26,6 +26,8 @@
 		1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */; };
 		1BDB59F12513A60E00931C90 /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F02513A60E00931C90 /* Followers.swift */; };
 		1BDB59F32513A61700931C90 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F22513A61700931C90 /* Users.swift */; };
+		1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F52513ADED00931C90 /* NetworkManager.swift */; };
+		1BDB59F82513AE1900931C90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F72513AE1900931C90 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		1BDB59F02513A60E00931C90 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
 		1BDB59F22513A61700931C90 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		1BDB59F52513ADED00931C90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1BDB59F72513AE1900931C90 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		1BDB59BD2511FFDE00931C90 /* TheGitHubPeoplApp */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB59F42513ADD400931C90 /* Networking */,
 				1BDB59E52513496000931C90 /* Extensions */,
 				1BDB59E02512591300931C90 /* Types */,
 				1BDB59DB2512300900931C90 /* Custom */,
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				1BDB59E12512593400931C90 /* Types.swift */,
+				1BDB59F72513AE1900931C90 /* Constants.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -152,6 +158,14 @@
 				1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1BDB59F42513ADD400931C90 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1BDB59F52513ADED00931C90 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */,
+				1BDB59F82513AE1900931C90 /* Constants.swift in Sources */,
 				1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */,
 				1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */,
 				1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */,
