@@ -29,6 +29,10 @@
 		1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F52513ADED00931C90 /* NetworkManager.swift */; };
 		1BDB59F82513AE1900931C90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59F72513AE1900931C90 /* Constants.swift */; };
 		1BDB59FB25149AFC00931C90 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */; };
+		1BDB59FD2514ABB800931C90 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59FC2514ABB800931C90 /* BaseListController.swift */; };
+		1BDB59FF2514B3F500931C90 /* CustomFollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */; };
+		1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A002514B47600931C90 /* RPImageView.swift */; };
+		1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A032514B95800931C90 /* ConfigureCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		1BDB59F52513ADED00931C90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1BDB59F72513AE1900931C90 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		1BDB59FC2514ABB800931C90 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFollowerCell.swift; sourceTree = "<group>"; };
+		1BDB5A002514B47600931C90 /* RPImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImageView.swift; sourceTree = "<group>"; };
+		1BDB5A032514B95800931C90 /* ConfigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,7 @@
 		1BDB59BD2511FFDE00931C90 /* TheGitHubPeoplApp */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB5A022514B93300931C90 /* Protocols */,
 				1BDB59F925149ACF00931C90 /* Enums */,
 				1BDB59F42513ADD400931C90 /* Networking */,
 				1BDB59E52513496000931C90 /* Extensions */,
@@ -118,6 +127,7 @@
 		1BDB59D3251212D500931C90 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,6 +140,7 @@
 				1BDB59D92512151300931C90 /* FavouritesController.swift */,
 				1BDB59E32513426400931C90 /* FollowerListController.swift */,
 				1BDB59EC2513547F00931C90 /* RPAlertController.swift */,
+				1BDB59FC2514ABB800931C90 /* BaseListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +152,7 @@
 				1BDB59DE2512302F00931C90 /* RPUITextfield.swift */,
 				1BDB59E82513518700931C90 /* RPTitleLable.swift */,
 				1BDB59EA251352E500931C90 /* RPBodyLable.swift */,
+				1BDB5A002514B47600931C90 /* RPImageView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -177,6 +189,14 @@
 				1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		1BDB5A022514B93300931C90 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1BDB5A032514B95800931C90 /* ConfigureCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,16 +273,20 @@
 				1BDB59F82513AE1900931C90 /* Constants.swift in Sources */,
 				1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */,
 				1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */,
+				1BDB59FF2514B3F500931C90 /* CustomFollowerCell.swift in Sources */,
 				1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */,
 				1BDB59ED2513547F00931C90 /* RPAlertController.swift in Sources */,
 				1BDB59D8251214FF00931C90 /* SearchController.swift in Sources */,
 				1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */,
 				1BDB59FB25149AFC00931C90 /* ErrorMessages.swift in Sources */,
 				1BDB59E42513426400931C90 /* FollowerListController.swift in Sources */,
+				1BDB59FD2514ABB800931C90 /* BaseListController.swift in Sources */,
 				1BDB59F12513A60E00931C90 /* Followers.swift in Sources */,
 				1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */,
 				1BDB59F32513A61700931C90 /* Users.swift in Sources */,
 				1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */,
+				1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */,
+				1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */,
 				1BDB59E22512593400931C90 /* Types.swift in Sources */,

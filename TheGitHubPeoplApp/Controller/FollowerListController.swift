@@ -9,31 +9,40 @@
 import UIKit
 
 class FollowerListController: UIViewController {
-    
+
+    //step 1 create a colelction view
+    var collectionView: UICollectionView!
     var username: String?
-    
+    fileprivate let padding: CGFloat = 16
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
         makeNetworkCall()
-        
+        configureCollectionViewController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    //step 2 configure collectionView
+    private func configureCollectionViewController() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemPink
+        collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
+    }
 
-    //step 9 new call using new enum messsages and result type, switching on success & failure
+    
     private func makeNetworkCall() {
         NetworkManager.shared.getFollowers(for: username ?? RPError.RPNetworkErrorUserMessage.rawValue, page: 1) { result in
             switch result {
             case .success(let followers):
                 print(followers)
             case .failure(let error):
-                self.presentRPAlertOnMainThread(title: RPError.GHAlertUnableTo.rawValue, message: error.rawValue, buttonTitle: RPError.GHOKText.rawValue)
+                self.presentRPAlertOnMainThread(title: RPError.GHAlertMessageWrong.rawValue, message: error.rawValue, buttonTitle: RPError.GHOKText.rawValue)
             }
         }
     }
