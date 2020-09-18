@@ -8,8 +8,6 @@
 
 import Foundation
 
-//step 1 refactor into an enum types file
-
 enum RPError: String, Error {
         case GHLogo = "gh-logo"
         case GHButtonText = "Get Followers"
