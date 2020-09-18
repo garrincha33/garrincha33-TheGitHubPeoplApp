@@ -17,7 +17,6 @@ class FollowerListController: UIViewController {
         
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-        //step 6 - make the call
         makeNetworkCall()
         
     }
@@ -26,15 +25,16 @@ class FollowerListController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    //step 5 create network call function
+
+    //step 9 new call using new enum messsages and result type, switching on success & failure
     private func makeNetworkCall() {
-        NetworkManager.shared.getFollowers(for: username ?? "No Username", page: 1) { (followers, error) in
-            guard let followers = followers else {
-                self.presentRPAlertOnMainThread(title: "Hmmm theres a problem", message: error ?? NetworkItem.RPNetworkErrorUserMessage, buttonTitle: ControllerItem.GHOKText)
-                return
+        NetworkManager.shared.getFollowers(for: username ?? RPError.RPNetworkErrorUserMessage.rawValue, page: 1) { result in
+            switch result {
+            case .success(let followers):
+                print(followers)
+            case .failure(let error):
+                self.presentRPAlertOnMainThread(title: RPError.GHAlertUnableTo.rawValue, message: error.rawValue, buttonTitle: RPError.GHOKText.rawValue)
             }
-            print("followers count \(followers.count)")
-            print(followers)
         }
     }
 }

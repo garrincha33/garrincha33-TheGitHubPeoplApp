@@ -8,5 +8,4 @@
 
 import Foundation
 
-//Step 1 create a base URL
 let BASEURL = "https://api.github.com/users/"
