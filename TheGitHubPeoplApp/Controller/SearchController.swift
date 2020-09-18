@@ -32,7 +32,6 @@ class SearchController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        //step 4 bug fix
          navigationController?.setNavigationBarHidden(true, animated: true)
     }
 

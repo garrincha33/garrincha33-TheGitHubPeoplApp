@@ -1,5 +1,5 @@
 //
-//  Followers.swift
+//  Constants.swift
 //  TheGitHubPeoplApp
 //
 //  Created by Richard Price on 17/09/2020.
@@ -8,7 +8,5 @@
 
 import Foundation
 
-struct Followers: Codable {
-    var login: String
-    var avatarUrl: String
-}
+//Step 1 create a base URL
+let BASEURL = "https://api.github.com/users/"

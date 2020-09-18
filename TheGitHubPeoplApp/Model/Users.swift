@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//step 1 created users struct - these need to exactly match your json network call
 
 struct Users: Codable {
     var login: String
