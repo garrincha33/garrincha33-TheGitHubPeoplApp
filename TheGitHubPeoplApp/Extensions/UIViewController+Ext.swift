@@ -8,7 +8,7 @@
 
 import UIKit
 
-private var containerView: UIView!
+private var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
 
 extension UIViewController {
     func presentRPAlertOnMainThread(title: String, message: String, buttonTitle: String) {
@@ -19,40 +19,41 @@ extension UIViewController {
             self.present(alertVC, animated: true)
         }
     }
-    
-    //step 1 create a function for showing laoding screen with spinner
+
     func showLoadingView() {
-        containerView = UIView(frame: view.bounds)
-        
-        view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
-        containerView.alpha = 0
-        
-        UIView.animate(withDuration: 0.25) {
-            containerView.alpha = 0.8
-        }
-        //step 2 create spinner
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        containerView.addSubview(activityIndicator)
-        
-        //step 3 add contraints
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        
-        ])
-        activityIndicator.startAnimating()
-    }
-    //step 4 create a dismiss function
-    func dismissLoadingView() {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.25, animations: {
-                    containerView.alpha = 0.0
-                }, completion: { _ in
-                    containerView.removeFromSuperview()
-                    containerView = nil
-                })
+        if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
+            if activityIndicator.isAnimating {
+                return
+            } else {
+                activityIndicator.startAnimating()
             }
+        } else {
+            self.view.isUserInteractionEnabled = false
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            activityIndicator.color = .black
+            
+            self.view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            
+            NSLayoutConstraint.activate([
+                activityIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+                activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            
+            ])
+            
+            self.view.layoutIfNeeded()
+            
+        }
+    }
+
+    
+    func dismissLoadingView() {
+        if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
+            if activityIndicator.isAnimating {
+                activityIndicator.stopAnimating()
+            }
+            self.view.isUserInteractionEnabled = true
+            activityIndicator.removeFromSuperview()
+        }
     }
 }

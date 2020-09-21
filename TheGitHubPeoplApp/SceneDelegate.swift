@@ -14,10 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var anotherWindow: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        //step 7 - bug at the moment removing as scroll isnt working
-        //UINavigationBar.appearance().prefersLargeTitles = true
+        //BUG UNCOMMENT below to introduce large titles
+        UINavigationBar.appearance().prefersLargeTitles = true
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

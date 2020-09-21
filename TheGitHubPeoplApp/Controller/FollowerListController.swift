@@ -27,10 +27,9 @@ class FollowerListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        makeNetworkCall(username: username ?? "", page: page)
         configureCollectionViewController()
         configureDataSource()
-        
+        makeNetworkCall(username: username ?? "", page: page)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,12 +46,12 @@ class FollowerListController: UIViewController {
     }
 
     private func makeNetworkCall(username: String, page: Int) {
-        //step 5 call here
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else {return}
-            //step 6 dississ here after call
-            self.dismissLoadingView()
+            DispatchQueue.main.async {
+                self.dismissLoadingView()
+            }
             switch result {
             case .success(let followers):
                 if followers.count < 100 {self.hasMoreFollowers = false}
