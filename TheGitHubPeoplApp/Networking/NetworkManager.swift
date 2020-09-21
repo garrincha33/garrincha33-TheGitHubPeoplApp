@@ -6,11 +6,13 @@
 //  Copyright © 2020 twisted echo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
 
     static let shared = NetworkManager()
+    //step 3 create an image cache
+    let imageCache = NSCache<NSString, UIImage>()
     private init() {}
 
     func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], RPError>) -> Void) {
