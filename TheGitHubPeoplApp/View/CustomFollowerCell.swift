@@ -25,16 +25,12 @@ class CustomFollowerCell: UICollectionViewCell, ConfigureCell {
         configure()
  
     }
-    
-//    func set(follower: Follower) {
-//        usernameLable.text = follower.login
-//    }
-    
+
     private func configure() {
         addSubview(avatarImageView)
         addSubview(usernameLable)
         let padding: CGFloat = 8
-        //step 3 xcode bug with other way of adding contraints, changing to this resolves render error
+
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),

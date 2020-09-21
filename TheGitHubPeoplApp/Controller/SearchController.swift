@@ -39,9 +39,7 @@ class SearchController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
-    
-    
-    
+
     @objc private func gotoFollowerController() {
         guard isUsernameEntered else {
             presentRPAlertOnMainThread(title: ControllerItem.GHAlertIsEmpty, message: ControllerItem.GHAlertMessageNoUsername, buttonTitle: ControllerItem.GHOKText)

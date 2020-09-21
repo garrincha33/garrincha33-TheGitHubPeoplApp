@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B55378E25188A2800046B46 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55378D25188A2800046B46 /* UIHelper.swift */; };
 		1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */; };
 		1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */; };
 		1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C22511FFDE00931C90 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B55378D25188A2800046B46 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		1BDB59BB2511FFDE00931C90 /* TheGitHubPeoplApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGitHubPeoplApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B55378C2518895600046B46 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B55378D25188A2800046B46 /* UIHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		1BDB59B22511FFDE00931C90 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		1BDB59BD2511FFDE00931C90 /* TheGitHubPeoplApp */ = {
 			isa = PBXGroup;
 			children = (
+				1B55378C2518895600046B46 /* Utils */,
 				1BDB5A022514B93300931C90 /* Protocols */,
 				1BDB59F925149ACF00931C90 /* Enums */,
 				1BDB59F42513ADD400931C90 /* Networking */,
@@ -226,7 +237,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "twisted echo";
 				TargetAttributes = {
 					1BDB59BA2511FFDE00931C90 = {
@@ -292,6 +303,7 @@
 				1BDB5A062514E82000931C90 /* Follower.swift in Sources */,
 				1BDB59DD2512302200931C90 /* RPUIButton.swift in Sources */,
 				1BDB59DF2512302F00931C90 /* RPUITextfield.swift in Sources */,
+				1B55378E25188A2800046B46 /* UIHelper.swift in Sources */,
 				1BDB59E72513496800931C90 /* String+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +348,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -396,6 +409,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
