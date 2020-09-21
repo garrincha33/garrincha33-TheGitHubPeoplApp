@@ -42,7 +42,6 @@ class FollowerListController: UIViewController {
         collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
     }
 
-    //step 1 add [weak self] prevent memory leaks, always declared on optional vars
     private func makeNetworkCall() {
         NetworkManager.shared.getFollowers(for: username ?? RPError.RPNetworkErrorUserMessage.rawValue, page: 1) { [weak self] result in
             guard let self = self else {return}

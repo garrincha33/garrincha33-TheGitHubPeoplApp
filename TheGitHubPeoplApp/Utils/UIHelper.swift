@@ -5,7 +5,7 @@
 //  Created by Richard Price on 21/09/2020.
 //  Copyright © 2020 twisted echo. All rights reserved.
 //
-//step 2 - refactor flow layout into own file, make static
+
 import UIKit
 
 struct UIHelper {
