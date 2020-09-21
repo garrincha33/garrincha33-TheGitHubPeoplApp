@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */; };
 		1B55378E25188A2800046B46 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55378D25188A2800046B46 /* UIHelper.swift */; };
 		1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */; };
 		1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyStateView.swift; sourceTree = "<group>"; };
 		1B55378D25188A2800046B46 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		1BDB59BB2511FFDE00931C90 /* TheGitHubPeoplApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGitHubPeoplApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				1BDB59E82513518700931C90 /* RPTitleLable.swift */,
 				1BDB59EA251352E500931C90 /* RPBodyLable.swift */,
 				1BDB5A002514B47600931C90 /* RPImageView.swift */,
+				1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */,
 				1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
+				1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */,
 				1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */,
 				1BDB59E22512593400931C90 /* Types.swift in Sources */,
 				1BDB5A062514E82000931C90 /* Follower.swift in Sources */,

@@ -31,7 +31,7 @@ extension UIViewController {
             self.view.isUserInteractionEnabled = false
             activityIndicator.translatesAutoresizingMaskIntoConstraints = false
             activityIndicator.color = .black
-            
+
             self.view.addSubview(activityIndicator)
             activityIndicator.startAnimating()
             
@@ -55,5 +55,11 @@ extension UIViewController {
             self.view.isUserInteractionEnabled = true
             activityIndicator.removeFromSuperview()
         }
+    }
+    
+    func showEmptyStateView(message: String, in view: UIView) {
+        let emptyStateView = RPEmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
     }
 }

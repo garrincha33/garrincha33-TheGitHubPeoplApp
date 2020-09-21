@@ -9,11 +9,11 @@
 import UIKit
 
 class FollowerListController: UIViewController {
-
+    
     enum Section {
         case main
     }
-
+    
     var collectionView: UICollectionView!
     var username: String?
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -23,7 +23,7 @@ class FollowerListController: UIViewController {
     var hasMoreFollowers = true
     
     fileprivate let padding: CGFloat = 16
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -31,12 +31,12 @@ class FollowerListController: UIViewController {
         configureDataSource()
         makeNetworkCall(username: username ?? "", page: page)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
     private func configureCollectionViewController() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         collectionView.delegate = self
@@ -44,7 +44,7 @@ class FollowerListController: UIViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
     }
-
+    
     private func makeNetworkCall(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
@@ -56,13 +56,21 @@ class FollowerListController: UIViewController {
             case .success(let followers):
                 if followers.count < 100 {self.hasMoreFollowers = false}
                 self.followers.append(contentsOf: followers)
+                if self.followers.isEmpty {
+                    let message = "This user doesnt have any followers as yet 😀"
+                    DispatchQueue.main.sync {
+                        self.showEmptyStateView(message: message, in: self.view)
+                        return
+                    }
+                }
+                
                 self.updateData()
             case .failure(let error):
                 self.presentRPAlertOnMainThread(title: RPError.GHAlertMessageWrong.rawValue, message: error.rawValue, buttonTitle: RPError.GHOKText.rawValue)
             }
         }
     }
-
+    
     func configure<T: ConfigureCell>(_ cellType: T.Type, with app: Follower, for indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
             fatalError("Unable to dequeue \(cellType)")
@@ -70,7 +78,7 @@ class FollowerListController: UIViewController {
         cell.configure(with: app)
         return cell
     }
-
+    
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomFollowerCell.reuseIdentifier, for: indexPath) as! CustomFollowerCell
@@ -78,7 +86,7 @@ class FollowerListController: UIViewController {
             return cell
         })
     }
-
+    
     private func updateData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
