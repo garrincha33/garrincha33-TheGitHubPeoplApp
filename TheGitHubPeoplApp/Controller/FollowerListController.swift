@@ -19,7 +19,6 @@ class FollowerListController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var followers: [Follower] = []
     //MARK:- pagination
-    //step 4 add page and bool, keep track of page number and check if anymore pages to load
     var page: Int = 1
     var hasMoreFollowers = true
     
@@ -31,6 +30,7 @@ class FollowerListController: UIViewController {
         makeNetworkCall(username: username ?? "", page: page)
         configureCollectionViewController()
         configureDataSource()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,20 +40,21 @@ class FollowerListController: UIViewController {
 
     private func configureCollectionViewController() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
-        //step 2 set delegate
         collectionView.delegate = self
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
     }
 
-    //step 3 amend network call to take in a follower and page number
     private func makeNetworkCall(username: String, page: Int) {
+        //step 5 call here
+        showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else {return}
+            //step 6 dississ here after call
+            self.dismissLoadingView()
             switch result {
             case .success(let followers):
-                //step 6 append your followers if less than 100
                 if followers.count < 100 {self.hasMoreFollowers = false}
                 self.followers.append(contentsOf: followers)
                 self.updateData()
@@ -87,7 +88,6 @@ class FollowerListController: UIViewController {
     }
 }
 
-//step 1 - create an extension to access the scrollEndDragging and set offsets
 extension FollowerListController: UICollectionViewDelegate {
     //MARK:- pagination
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -96,7 +96,6 @@ extension FollowerListController: UICollectionViewDelegate {
         let screenHeight = scrollView.frame.size.height
         
         if offSetY > contentHeight - screenHeight {
-            //step 5 make call for username and page
             guard hasMoreFollowers else {return}
             page += 1
             makeNetworkCall(username: username ?? "", page: page)

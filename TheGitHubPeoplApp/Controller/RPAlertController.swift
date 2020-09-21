@@ -36,7 +36,6 @@ class RPAlertController: UIViewController {
         self.buttonTitle = buttonTitle
     }
     //MARK:- Dismiss
-
     @objc private func dismissVC() {
         dismiss(animated: true)
     }
