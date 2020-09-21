@@ -11,7 +11,6 @@ import UIKit
 class NetworkManager {
 
     static let shared = NetworkManager()
-    //step 3 create an image cache
     let imageCache = NSCache<NSString, UIImage>()
     private init() {}
 
