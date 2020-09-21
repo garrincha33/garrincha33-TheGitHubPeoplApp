@@ -15,6 +15,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         setupTC()
+        //setupNavBarControllerCustom()
         
     }
 

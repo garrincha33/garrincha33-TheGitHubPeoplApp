@@ -8,6 +8,8 @@
 
 import UIKit
 
+private var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+
 extension UIViewController {
     func presentRPAlertOnMainThread(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
@@ -15,6 +17,43 @@ extension UIViewController {
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve
             self.present(alertVC, animated: true)
+        }
+    }
+
+    func showLoadingView() {
+        if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
+            if activityIndicator.isAnimating {
+                return
+            } else {
+                activityIndicator.startAnimating()
+            }
+        } else {
+            self.view.isUserInteractionEnabled = false
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            activityIndicator.color = .black
+            
+            self.view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            
+            NSLayoutConstraint.activate([
+                activityIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+                activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            
+            ])
+            
+            self.view.layoutIfNeeded()
+            
+        }
+    }
+
+    
+    func dismissLoadingView() {
+        if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
+            if activityIndicator.isAnimating {
+                activityIndicator.stopAnimating()
+            }
+            self.view.isUserInteractionEnabled = true
+            activityIndicator.removeFromSuperview()
         }
     }
 }
