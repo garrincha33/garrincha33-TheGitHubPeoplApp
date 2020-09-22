@@ -50,8 +50,6 @@ class NetworkManager {
         }
         task.resume()
     }
-    
-    //MARK:-Get user //step 1 create network call
     func getUserInfo(for username: String, completed: @escaping (Result<User, RPError>) -> Void) {
         let endpoint = BASEURL + "\(username)"
         

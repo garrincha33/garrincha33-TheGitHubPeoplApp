@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */; };
 		1B378C712519EBFE00E4A813 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C702519EBFE00E4A813 /* UserInfoController.swift */; };
+		1B378C74251A048000E4A813 /* RPSecondaryTitleLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C73251A048000E4A813 /* RPSecondaryTitleLable.swift */; };
+		1B378C77251A05A800E4A813 /* UIserInfoHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C76251A05A800E4A813 /* UIserInfoHeaderController.swift */; };
+		1B378C7A251A086800E4A813 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C79251A086800E4A813 /* SFSymbols.swift */; };
 		1B55378E25188A2800046B46 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55378D25188A2800046B46 /* UIHelper.swift */; };
 		1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */; };
 		1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */; };
@@ -41,6 +44,9 @@
 /* Begin PBXFileReference section */
 		1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyStateView.swift; sourceTree = "<group>"; };
 		1B378C702519EBFE00E4A813 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		1B378C73251A048000E4A813 /* RPSecondaryTitleLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSecondaryTitleLable.swift; sourceTree = "<group>"; };
+		1B378C76251A05A800E4A813 /* UIserInfoHeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIserInfoHeaderController.swift; sourceTree = "<group>"; };
+		1B378C79251A086800E4A813 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		1B55378D25188A2800046B46 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		1BDB59BB2511FFDE00931C90 /* TheGitHubPeoplApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGitHubPeoplApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				1BDB59EC2513547F00931C90 /* RPAlertController.swift */,
 				1BDB59FC2514ABB800931C90 /* BaseListController.swift */,
 				1B378C702519EBFE00E4A813 /* UserInfoController.swift */,
+				1B378C76251A05A800E4A813 /* UIserInfoHeaderController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 				1BDB59EA251352E500931C90 /* RPBodyLable.swift */,
 				1BDB5A002514B47600931C90 /* RPImageView.swift */,
 				1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */,
+				1B378C73251A048000E4A813 /* RPSecondaryTitleLable.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				1BDB59FA25149AFC00931C90 /* ErrorMessages.swift */,
+				1B378C79251A086800E4A813 /* SFSymbols.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -288,6 +297,7 @@
 			files = (
 				1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */,
 				1BDB59F82513AE1900931C90 /* Constants.swift in Sources */,
+				1B378C7A251A086800E4A813 /* SFSymbols.swift in Sources */,
 				1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */,
 				1B378C712519EBFE00E4A813 /* UserInfoController.swift in Sources */,
 				1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */,
@@ -300,9 +310,11 @@
 				1BDB59E42513426400931C90 /* FollowerListController.swift in Sources */,
 				1BDB59FD2514ABB800931C90 /* BaseListController.swift in Sources */,
 				1BDB59DA2512151300931C90 /* FavouritesController.swift in Sources */,
+				1B378C74251A048000E4A813 /* RPSecondaryTitleLable.swift in Sources */,
 				1BDB59F32513A61700931C90 /* Users.swift in Sources */,
 				1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */,
 				1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */,
+				1B378C77251A05A800E4A813 /* UIserInfoHeaderController.swift in Sources */,
 				1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */,
