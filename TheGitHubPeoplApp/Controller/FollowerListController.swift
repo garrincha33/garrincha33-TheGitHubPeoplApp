@@ -19,7 +19,6 @@ class FollowerListController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var followers: [Follower] = []
     var followersFiltered: [Follower] = []
-    //step 2 create a bool to track if search
     var isSearching = false
     //MARK:- pagination
     var page: Int = 1
@@ -124,7 +123,7 @@ extension FollowerListController: UICollectionViewDelegate {
             makeNetworkCall(username: username ?? "", page: page)
         }
     }
-    //step 3 call did set to transition to other controller
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = UserInfoController()
         let activeArray = isSearching ? followersFiltered : followers
@@ -138,7 +137,6 @@ extension FollowerListController: UICollectionViewDelegate {
 extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
-        //step 2 set to true
         isSearching = true
         followersFiltered = (filter.isEmpty) ? followers : followers.filter ({$0.login?.localizedCaseInsensitiveContains(filter) == true})
         DispatchQueue.main.async { //adding this is in weird warnings
@@ -148,7 +146,6 @@ extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateData(on: followers)
-        //step 3 set to false
         isSearching = false
     }
 }

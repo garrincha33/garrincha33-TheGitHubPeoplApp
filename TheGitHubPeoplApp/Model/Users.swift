@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-struct Users: Codable {
+//step 2 bug with followers changed to Int network call wasnt worked
+struct User: Codable {
     var login: String
     var avatarUrl: String
     var name: String?
@@ -17,7 +17,7 @@ struct Users: Codable {
     var publicRepos: Int
     var publicGists: Int
     var htmlUrl: String
-    var following: String
+    var following: Int
     var followers: Int
     var createdAt: String
 }

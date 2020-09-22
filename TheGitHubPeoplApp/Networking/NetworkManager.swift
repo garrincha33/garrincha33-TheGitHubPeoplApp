@@ -50,4 +50,44 @@ class NetworkManager {
         }
         task.resume()
     }
+    
+    //MARK:-Get user //step 1 create network call
+    func getUserInfo(for username: String, completed: @escaping (Result<User, RPError>) -> Void) {
+        let endpoint = BASEURL + "\(username)"
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.RPNetworkErrorConnectionMessage))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let _ = error {
+                completed(.failure(.GHAlertUnableTo))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.RPNetworkErrorConnectionMessage))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.GHAlertUnableTo))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let user = try decoder.decode(User.self, from: data)
+                completed(.success(user))
+            } catch {
+                completed(.failure(.GHAlertUnableTo))
+            }
+        }
+        
+        task.resume()
+    }
+    
 }
