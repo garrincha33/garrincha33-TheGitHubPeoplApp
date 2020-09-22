@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */; };
+		1B378C712519EBFE00E4A813 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C702519EBFE00E4A813 /* UserInfoController.swift */; };
 		1B55378E25188A2800046B46 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55378D25188A2800046B46 /* UIHelper.swift */; };
 		1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */; };
 		1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		1B378C6D2518D03600E4A813 /* RPEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyStateView.swift; sourceTree = "<group>"; };
+		1B378C702519EBFE00E4A813 /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 		1B55378D25188A2800046B46 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		1BDB59BB2511FFDE00931C90 /* TheGitHubPeoplApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGitHubPeoplApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				1BDB59E32513426400931C90 /* FollowerListController.swift */,
 				1BDB59EC2513547F00931C90 /* RPAlertController.swift */,
 				1BDB59FC2514ABB800931C90 /* BaseListController.swift */,
+				1B378C702519EBFE00E4A813 /* UserInfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */,
 				1BDB59F82513AE1900931C90 /* Constants.swift in Sources */,
 				1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */,
+				1B378C712519EBFE00E4A813 /* UserInfoController.swift in Sources */,
 				1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */,
 				1BDB59FF2514B3F500931C90 /* CustomFollowerCell.swift in Sources */,
 				1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */,

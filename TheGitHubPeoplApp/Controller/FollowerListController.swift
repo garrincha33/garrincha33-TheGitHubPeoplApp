@@ -18,8 +18,9 @@ class FollowerListController: UIViewController {
     var username: String?
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var followers: [Follower] = []
-    //step 4 create a filtered array
     var followersFiltered: [Follower] = []
+    //step 2 create a bool to track if search
+    var isSearching = false
     //MARK:- pagination
     var page: Int = 1
     var hasMoreFollowers = true
@@ -30,7 +31,6 @@ class FollowerListController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureCollectionViewController()
-        //step 3 call controller
         configureSearchController()
         configureDataSource()
         makeNetworkCall(username: username ?? "", page: page)
@@ -90,7 +90,7 @@ class FollowerListController: UIViewController {
             return cell
         })
     }
-    //step 5 - also add followers arry to update data function
+
     private func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
@@ -99,8 +99,7 @@ class FollowerListController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
         }
     }
-    
-    //step 2 create function to config controller
+
     private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
@@ -125,12 +124,22 @@ extension FollowerListController: UICollectionViewDelegate {
             makeNetworkCall(username: username ?? "", page: page)
         }
     }
+    //step 3 call did set to transition to other controller
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = UserInfoController()
+        let activeArray = isSearching ? followersFiltered : followers
+        let follower = activeArray[indexPath.row]
+        controller.username = follower.login
+        let navController = UINavigationController(rootViewController: controller)
+        present(navController, animated: true)
+    }
 }
-//step 1 extend to uisearchresults
+
 extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
-        //step 5 set filtered searchbar
+        //step 2 set to true
+        isSearching = true
         followersFiltered = (filter.isEmpty) ? followers : followers.filter ({$0.login?.localizedCaseInsensitiveContains(filter) == true})
         DispatchQueue.main.async { //adding this is in weird warnings
             self.updateData(on: self.followersFiltered)
@@ -139,5 +148,7 @@ extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateData(on: followers)
+        //step 3 set to false
+        isSearching = false
     }
 }

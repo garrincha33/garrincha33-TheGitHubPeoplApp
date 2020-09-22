@@ -12,7 +12,6 @@ class CustomFollowerCell: UICollectionViewCell, ConfigureCell {
     
     func configure(with followers: Follower) {
         usernameLable.text = followers.login
-        //step 2 add to config function which gets called in followersVC
         avatarImageView.downloadImage(from: followers.avatarUrl ?? "")
     }
     
