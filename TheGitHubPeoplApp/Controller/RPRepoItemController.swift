@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//step 11 create a repo controller inhertiing from the infocontroller
+
 class RPRepoItemController: RPInfoViewController {
     
     override func viewDidLoad() {

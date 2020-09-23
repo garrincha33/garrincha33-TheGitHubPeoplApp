@@ -7,16 +7,13 @@
 //
 
 import UIKit
-//step 6 create a view controller to diplsay the info view, this is the superclass
-// we will create another 2 controllers based on this class
-class RPInfoViewController: UIViewController {
 
-    //step 7 create isntances and button
+class RPInfoViewController: UIViewController {
+    
     let itemInfoControllerOne = RPItemInfoView()
     let itemInfoControllerTwo = RPItemInfoView()
     let actionButton = RPUIButton()
-    
-    //step 7 - also create a user so we can access the User we need and custom init
+
     var user: User!
     
     init(user: User) {
@@ -33,21 +30,19 @@ class RPInfoViewController: UIViewController {
         configureBackgroundView()
         setupUI()
     }
-    //step 8 create config back func
+
     private func configureBackgroundView() {
         view.layer.cornerRadius = 18
         view.backgroundColor = .secondarySystemBackground
     }
 
-    //step 9 create a stack view creator func
     private func stackViewCreator(with stack: UIStackView) -> UIStackView {
         stack.axis = .horizontal
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }
-    
-    //step 10 step ui
+
     private func setupUI() {
         let stack = UIStackView(arrangedSubviews: [itemInfoControllerOne, itemInfoControllerTwo])
         let stackView = stackViewCreator(with: stack)
