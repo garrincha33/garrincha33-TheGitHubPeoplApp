@@ -36,5 +36,10 @@ class RPUIButton: UIButton {
         titleLabel?.font        = UIFont.preferredFont(forTextStyle: .headline)
         translatesAutoresizingMaskIntoConstraints = false
     }
+    //step 13 in RPUIButton create a function to customise what button you wnat to use, unique
+    func set(to backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
     
 }

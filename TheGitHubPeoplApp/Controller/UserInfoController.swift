@@ -12,7 +12,6 @@ import UIKit
 class UserInfoController: UIViewController {
 
     let headerView = UIView()
-    //step 1 create 2 views and an array
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
     var itemViews: [UIView] = []
@@ -21,7 +20,6 @@ class UserInfoController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //step 4 refactor to methods
         configureViewController()
         setupUI()
         makeNetworkCallGetUserInfo()
@@ -40,6 +38,9 @@ class UserInfoController: UIViewController {
             case .success(let user):
                 DispatchQueue.main.sync {
                     self.addChildVC(childVC: UIserInfoHeaderController(user: user), to: self.headerView)
+                    //step 14 call your created controllers to display
+                    self.addChildVC(childVC: RPRepoItemController(user: user), to: self.itemViewOne)
+                    self.addChildVC(childVC: RPFollowerItemController(user: user), to: self.itemViewTwo)
                 }
             case .failure(_):
                 self.presentRPAlertOnMainThread(title: RPError.GHAlertMessageWrong.rawValue, message: RPError.GHAlertUnableTo.rawValue, buttonTitle: RPError.GHOKText.rawValue)
@@ -50,8 +51,6 @@ class UserInfoController: UIViewController {
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-    //step 2 refactor and add all views to array, padding and item height at top
-    //also add contraints to item views array for the padding
     func setupUI() {
         let padding: CGFloat    = 20
         let itemHeight: CGFloat = 140
@@ -61,16 +60,12 @@ class UserInfoController: UIViewController {
         for itemView in itemViews {
             view.addSubview(itemView)
             itemView.translatesAutoresizingMaskIntoConstraints = false
-            
             NSLayoutConstraint.activate([
                 itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
                 itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
             ])
         }
-        
-        itemViewOne.backgroundColor = .systemPink
-        itemViewTwo.backgroundColor = .systemBlue
-        
+
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 180),

@@ -13,6 +13,10 @@
 		1B378C77251A05A800E4A813 /* UIserInfoHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C76251A05A800E4A813 /* UIserInfoHeaderController.swift */; };
 		1B378C7A251A086800E4A813 /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B378C79251A086800E4A813 /* SFSymbols.swift */; };
 		1B55378E25188A2800046B46 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55378D25188A2800046B46 /* UIHelper.swift */; };
+		1B7A997A251A91B4007D6E4B /* RPItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A9979251A91B4007D6E4B /* RPItemInfoView.swift */; };
+		1B7A997D251B6A3B007D6E4B /* RPInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A997C251B6A3B007D6E4B /* RPInfoViewController.swift */; };
+		1B9012D2251B710E00380D4F /* RPRepoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9012D1251B710E00380D4F /* RPRepoItemController.swift */; };
+		1B9012D5251B738600380D4F /* RPFollowerItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9012D4251B738600380D4F /* RPFollowerItemController.swift */; };
 		1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */; };
 		1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */; };
 		1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C22511FFDE00931C90 /* ViewController.swift */; };
@@ -48,6 +52,10 @@
 		1B378C76251A05A800E4A813 /* UIserInfoHeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIserInfoHeaderController.swift; sourceTree = "<group>"; };
 		1B378C79251A086800E4A813 /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		1B55378D25188A2800046B46 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		1B7A9979251A91B4007D6E4B /* RPItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPItemInfoView.swift; sourceTree = "<group>"; };
+		1B7A997C251B6A3B007D6E4B /* RPInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPInfoViewController.swift; sourceTree = "<group>"; };
+		1B9012D1251B710E00380D4F /* RPRepoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRepoItemController.swift; sourceTree = "<group>"; };
+		1B9012D4251B738600380D4F /* RPFollowerItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFollowerItemController.swift; sourceTree = "<group>"; };
 		1BDB59BB2511FFDE00931C90 /* TheGitHubPeoplApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGitHubPeoplApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */,
+				1B7A9979251A91B4007D6E4B /* RPItemInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,14 +165,17 @@
 		1BDB59D4251212D900931C90 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1BDB59D5251212EC00931C90 /* MainTabBarController.swift */,
-				1BDB59D7251214FF00931C90 /* SearchController.swift */,
+				1BDB59FC2514ABB800931C90 /* BaseListController.swift */,
 				1BDB59D92512151300931C90 /* FavouritesController.swift */,
 				1BDB59E32513426400931C90 /* FollowerListController.swift */,
+				1BDB59D5251212EC00931C90 /* MainTabBarController.swift */,
 				1BDB59EC2513547F00931C90 /* RPAlertController.swift */,
-				1BDB59FC2514ABB800931C90 /* BaseListController.swift */,
-				1B378C702519EBFE00E4A813 /* UserInfoController.swift */,
+				1BDB59D7251214FF00931C90 /* SearchController.swift */,
 				1B378C76251A05A800E4A813 /* UIserInfoHeaderController.swift */,
+				1B378C702519EBFE00E4A813 /* UserInfoController.swift */,
+				1B7A997C251B6A3B007D6E4B /* RPInfoViewController.swift */,
+				1B9012D1251B710E00380D4F /* RPRepoItemController.swift */,
+				1B9012D4251B738600380D4F /* RPFollowerItemController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,12 +309,14 @@
 			files = (
 				1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */,
 				1BDB59F82513AE1900931C90 /* Constants.swift in Sources */,
+				1B7A997D251B6A3B007D6E4B /* RPInfoViewController.swift in Sources */,
 				1B378C7A251A086800E4A813 /* SFSymbols.swift in Sources */,
 				1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */,
 				1B378C712519EBFE00E4A813 /* UserInfoController.swift in Sources */,
 				1BDB59E92513518700931C90 /* RPTitleLable.swift in Sources */,
 				1BDB59FF2514B3F500931C90 /* CustomFollowerCell.swift in Sources */,
 				1BDB59EF2513737400931C90 /* UIViewController+Ext.swift in Sources */,
+				1B9012D2251B710E00380D4F /* RPRepoItemController.swift in Sources */,
 				1BDB59ED2513547F00931C90 /* RPAlertController.swift in Sources */,
 				1BDB59D8251214FF00931C90 /* SearchController.swift in Sources */,
 				1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */,
@@ -315,10 +329,12 @@
 				1BDB59EB251352E500931C90 /* RPBodyLable.swift in Sources */,
 				1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */,
 				1B378C77251A05A800E4A813 /* UIserInfoHeaderController.swift in Sources */,
+				1B9012D5251B738600380D4F /* RPFollowerItemController.swift in Sources */,
 				1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */,
 				1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */,
+				1B7A997A251A91B4007D6E4B /* RPItemInfoView.swift in Sources */,
 				1BDB59E22512593400931C90 /* Types.swift in Sources */,
 				1BDB5A062514E82000931C90 /* Follower.swift in Sources */,
 				1BDB59DD2512302200931C90 /* RPUIButton.swift in Sources */,
