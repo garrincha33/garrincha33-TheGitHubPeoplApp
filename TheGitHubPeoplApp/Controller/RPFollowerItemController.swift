@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//step 13 create your second controller
+
 class RPFollowerItemController: RPInfoViewController {
     
     override func viewDidLoad() {

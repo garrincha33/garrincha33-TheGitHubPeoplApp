@@ -14,6 +14,8 @@ class UserInfoController: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    //step 1 create your date lable
+    let dateLable = RPBodyLable(textAlignment: .center)
     var itemViews: [UIView] = []
     
     var username: String!
@@ -38,9 +40,10 @@ class UserInfoController: UIViewController {
             case .success(let user):
                 DispatchQueue.main.sync {
                     self.addChildVC(childVC: UIserInfoHeaderController(user: user), to: self.headerView)
-                    //step 14 call your created controllers to display
                     self.addChildVC(childVC: RPRepoItemController(user: user), to: self.itemViewOne)
                     self.addChildVC(childVC: RPFollowerItemController(user: user), to: self.itemViewTwo)
+                    //step 8 add date lable with convert function
+                    self.dateLable.text = "GitHub member since \(user.createdAt.convertToDisplayFormat())"
                 }
             case .failure(_):
                 self.presentRPAlertOnMainThread(title: RPError.GHAlertMessageWrong.rawValue, message: RPError.GHAlertUnableTo.rawValue, buttonTitle: RPError.GHOKText.rawValue)
@@ -54,8 +57,8 @@ class UserInfoController: UIViewController {
     func setupUI() {
         let padding: CGFloat    = 20
         let itemHeight: CGFloat = 140
-        
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        //step 2 add to itemsViews array
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLable]
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -74,7 +77,10 @@ class UserInfoController: UIViewController {
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight)
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            //step 3 add constraints that are not in itemViews
+            dateLable.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLable.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
 
