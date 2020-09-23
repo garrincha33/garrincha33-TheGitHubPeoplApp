@@ -61,7 +61,6 @@ class UIserInfoHeaderController: UIViewController {
         let padding: CGFloat            = 20
         let textImagePadding: CGFloat   = 12
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
-        //step 3 now setting in user into so remove padding from lables
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
             avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
