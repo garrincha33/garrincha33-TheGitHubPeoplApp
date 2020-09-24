@@ -21,7 +21,6 @@ class RPFollowerItemController: RPInfoViewController {
         itemInfoControllerTwo.set(itemInfoType: .following, with: user.following)
         actionButton.set(to: .systemGreen, title: "Get Followers")
     }
-    //step 15 override the actionbuitton tap to call get followers
     override func actionButtonTapped() {
         delegate.didTapGetFollowers(user: user)
     }

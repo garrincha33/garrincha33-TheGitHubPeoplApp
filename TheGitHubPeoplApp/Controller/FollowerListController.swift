@@ -8,7 +8,6 @@
 
 import UIKit
 
-//step 10 create second protocol
 protocol FollowerListControllerDelegate: class {
     func didTapGetFollowers(username: String)
 }
@@ -38,6 +37,7 @@ class FollowerListController: UIViewController {
         configureSearchController()
         configureDataSource()
         makeNetworkCall(username: username ?? "", page: page)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +51,13 @@ class FollowerListController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
+        //step 1 create an add button with add to faves func
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFaves))
+        navigationItem.rightBarButtonItem = addButton
+    }
+    
+    @objc private func addToFaves() {
+        print("testing")
     }
     
     private func makeNetworkCall(username: String, page: Int) {
@@ -134,7 +141,6 @@ extension FollowerListController: UICollectionViewDelegate {
         let activeArray = isSearching ? followersFiltered : followers
         let follower = activeArray[indexPath.row]
         controller.username = follower.login
-        //step 12 set your delegate to self
         controller.delegate = self
         let navController = UINavigationController(rootViewController: controller)
         present(navController, animated: true)
@@ -156,7 +162,7 @@ extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
         isSearching = false
     }
 }
-//step 11 confoirm to delegate, reset all followers to zero and make a new network call
+
 extension FollowerListController: FollowerListControllerDelegate {
     func didTapGetFollowers(username: String) {
         self.username = username
