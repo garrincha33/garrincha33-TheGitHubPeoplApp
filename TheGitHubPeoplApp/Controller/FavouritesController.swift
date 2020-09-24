@@ -14,7 +14,15 @@ class FavouritesController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemPink
-        
+        //step 5 test you can bring back users after adding some to defaults
+        PersistanceManager.retrieveFavourites { (result) in
+            switch result {
+            case.success(let faves):
+                print(faves)
+            case .failure(let error):
+                break
+            }
+        }
     }
     
 }
