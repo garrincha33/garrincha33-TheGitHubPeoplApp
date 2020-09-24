@@ -13,13 +13,16 @@ class RPRepoItemController: RPInfoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
-        
     }
-    //step 12 configure needed items
+
     private func configureItems() {
         itemInfoControllerOne.set(itemInfoType: .repos, with: user.publicRepos)
         itemInfoControllerTwo.set(itemInfoType: .gists, with: user.publicGists)
         actionButton.set(to: .systemPurple, title: "GitHub Profile")
+    }
+    //step 7 call delegate function
+    override func actionButtonTapped() {
+        delegate.didTapGitHubProfile(user: user)
     }
     
 }

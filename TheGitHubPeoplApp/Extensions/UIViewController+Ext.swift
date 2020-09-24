@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 private var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
 
@@ -46,7 +47,6 @@ extension UIViewController {
         }
     }
 
-    
     func dismissLoadingView() {
         if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
             if activityIndicator.isAnimating {
@@ -61,5 +61,11 @@ extension UIViewController {
         let emptyStateView = RPEmptyStateView(message: message)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
+    }
+    //step 9 create safari function for passing urls
+    func presentSafariController(with url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.preferredControlTintColor = .systemGreen
+        present(safariViewController, animated: true, completion: nil)
     }
 }

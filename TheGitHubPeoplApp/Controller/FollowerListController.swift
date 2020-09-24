@@ -8,6 +8,11 @@
 
 import UIKit
 
+//step 10 create second protocol
+protocol FollowerListControllerDelegate: class {
+    func didTapGetFollowers(username: String)
+}
+
 class FollowerListController: UIViewController {
     
     enum Section {
@@ -129,6 +134,8 @@ extension FollowerListController: UICollectionViewDelegate {
         let activeArray = isSearching ? followersFiltered : followers
         let follower = activeArray[indexPath.row]
         controller.username = follower.login
+        //step 12 set your delegate to self
+        controller.delegate = self
         let navController = UINavigationController(rootViewController: controller)
         present(navController, animated: true)
     }
@@ -147,5 +154,17 @@ extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateData(on: followers)
         isSearching = false
+    }
+}
+//step 11 confoirm to delegate, reset all followers to zero and make a new network call
+extension FollowerListController: FollowerListControllerDelegate {
+    func didTapGetFollowers(username: String) {
+        self.username = username
+        title = username
+        page = 1
+        followers.removeAll()
+        followersFiltered.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        makeNetworkCall(username: username, page: page)
     }
 }
