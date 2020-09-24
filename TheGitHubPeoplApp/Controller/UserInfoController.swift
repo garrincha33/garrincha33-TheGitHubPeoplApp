@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//step 1 create protocol
+
 protocol UserInfoControllerDelegate: class {
     func didTapGitHubProfile(user: User)
     func didTapGetFollowers(user: User)
@@ -22,7 +22,6 @@ class UserInfoController: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
-    //step 13 create your delegate to set
     weak var delegate: FollowerListControllerDelegate!
 
     override func viewDidLoad() {
@@ -56,7 +55,7 @@ class UserInfoController: UIViewController {
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-    //step 4 refactor into method can set delegates
+
     private func setupElements(with user: User) {
         let repoItemController = RPRepoItemController(user: user)
         repoItemController.delegate = self
@@ -105,20 +104,16 @@ class UserInfoController: UIViewController {
         childVC.didMove(toParent: self)
     }
 }
-// step 2 create extension and conform
+
 extension UserInfoController: UserInfoControllerDelegate {
     func didTapGitHubProfile(user: User) {
-        //print("Testing didTap")
-        //step 8 create a url to pass to safari view controller
         guard let url = URL(string: user.htmlUrl) else {
             presentRPAlertOnMainThread(title: "Invalid URL", message: "The url is invalid", buttonTitle: RPError.GHOKText.rawValue)
             return
         }
-        
         presentSafariController(with: url)
- 
     }
-    //step 14 implelent a function to use the delegate did tap followers
+
     func didTapGetFollowers(user: User) {
         guard user.followers != 0 else {
             presentRPAlertOnMainThread(title: "User has no followers", message: "no followers", buttonTitle: RPError.GHOKText.rawValue)

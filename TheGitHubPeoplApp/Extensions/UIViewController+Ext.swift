@@ -47,13 +47,15 @@ extension UIViewController {
         }
     }
 
-    func dismissLoadingView() {
-        if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
-            if activityIndicator.isAnimating {
-                activityIndicator.stopAnimating()
+    func dismissLoadingView() { //MARK:- bug fix
+        DispatchQueue.main.async {
+            if let indicator = self.view.subviews.last as? UIActivityIndicatorView, indicator === activityIndicator {
+                if activityIndicator.isAnimating {
+                    activityIndicator.stopAnimating()
+                }
+                self.view.isUserInteractionEnabled = true
+                activityIndicator.removeFromSuperview()
             }
-            self.view.isUserInteractionEnabled = true
-            activityIndicator.removeFromSuperview()
         }
     }
     

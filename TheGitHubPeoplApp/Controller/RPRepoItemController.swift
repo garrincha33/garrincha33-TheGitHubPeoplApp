@@ -20,7 +20,7 @@ class RPRepoItemController: RPInfoViewController {
         itemInfoControllerTwo.set(itemInfoType: .gists, with: user.publicGists)
         actionButton.set(to: .systemPurple, title: "GitHub Profile")
     }
-    //step 7 call delegate function
+
     override func actionButtonTapped() {
         delegate.didTapGitHubProfile(user: user)
     }

@@ -8,7 +8,6 @@
 
 import UIKit
 
-//step 10 create second protocol
 protocol FollowerListControllerDelegate: class {
     func didTapGetFollowers(username: String)
 }
@@ -38,6 +37,7 @@ class FollowerListController: UIViewController {
         configureSearchController()
         configureDataSource()
         makeNetworkCall(username: username ?? "", page: page)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,37 @@ class FollowerListController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(CustomFollowerCell.self, forCellWithReuseIdentifier: CustomFollowerCell.reuseIdentifier)
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFaves))
+        navigationItem.rightBarButtonItem = addButton
     }
+    //step 1 create add to faves using persistance method
+    @objc private func addToFaves() {
+        showLoadingView()
+        //step 2 netowrk call
+        NetworkManager.shared.getUserInfo(for: username ?? "") { [weak self] result in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            //step 3 switch on result
+            switch result {
+            case .success(let user):
+                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                //step 4 use persistance
+                PersistanceManager.updateWith(favourite: favorite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    guard let error = error else {
+                        self.presentRPAlertOnMainThread(title: "Success!", message: "You have successfully favorited this user 🎉", buttonTitle: "Hooray!")
+                        return
+                    }
+                    self.presentRPAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                }
+            case .failure(let error):
+                self.presentRPAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
+        }
+    }
+    
+    
     
     private func makeNetworkCall(username: String, page: Int) {
         showLoadingView()
@@ -94,7 +124,7 @@ class FollowerListController: UIViewController {
             return cell
         })
     }
-
+    
     private func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
@@ -103,7 +133,7 @@ class FollowerListController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
         }
     }
-
+    
     private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
@@ -128,13 +158,12 @@ extension FollowerListController: UICollectionViewDelegate {
             makeNetworkCall(username: username ?? "", page: page)
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = UserInfoController()
         let activeArray = isSearching ? followersFiltered : followers
         let follower = activeArray[indexPath.row]
         controller.username = follower.login
-        //step 12 set your delegate to self
         controller.delegate = self
         let navController = UINavigationController(rootViewController: controller)
         present(navController, animated: true)
@@ -156,7 +185,7 @@ extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
         isSearching = false
     }
 }
-//step 11 confoirm to delegate, reset all followers to zero and make a new network call
+
 extension FollowerListController: FollowerListControllerDelegate {
     func didTapGetFollowers(username: String) {
         self.username = username

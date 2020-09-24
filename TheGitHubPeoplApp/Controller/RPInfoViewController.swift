@@ -15,7 +15,6 @@ class RPInfoViewController: UIViewController {
     @objc let actionButton = RPUIButton()
 
     var user: User!
-    //step 3 create an instance of the delegate
     weak var delegate: UserInfoControllerDelegate!
     
     init(user: User) {
