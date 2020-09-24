@@ -12,9 +12,11 @@ class RPInfoViewController: UIViewController {
     
     let itemInfoControllerOne = RPItemInfoView()
     let itemInfoControllerTwo = RPItemInfoView()
-    let actionButton = RPUIButton()
+    @objc let actionButton = RPUIButton()
 
     var user: User!
+    //step 3 create an instance of the delegate
+    weak var delegate: UserInfoControllerDelegate!
     
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
@@ -28,6 +30,7 @@ class RPInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
+        configureActionButton()
         setupUI()
     }
 
@@ -42,7 +45,14 @@ class RPInfoViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }
+    
+    //step 6 create actions for button, create a blank stub set in indivual classes
+    private func configureActionButton() {
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+    }
 
+    @objc func actionButtonTapped() {}
+    
     private func setupUI() {
         let stack = UIStackView(arrangedSubviews: [itemInfoControllerOne, itemInfoControllerTwo])
         let stackView = stackViewCreator(with: stack)

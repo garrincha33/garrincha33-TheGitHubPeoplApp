@@ -7,18 +7,23 @@
 //
 
 import UIKit
-
+//step 1 create protocol
+protocol UserInfoControllerDelegate: class {
+    func didTapGitHubProfile(user: User)
+    func didTapGetFollowers(user: User)
+}
 
 class UserInfoController: UIViewController {
 
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
-    //step 1 create your date lable
     let dateLable = RPBodyLable(textAlignment: .center)
     var itemViews: [UIView] = []
     
     var username: String!
+    //step 13 create your delegate to set
+    weak var delegate: FollowerListControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +44,8 @@ class UserInfoController: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.sync {
-                    self.addChildVC(childVC: UIserInfoHeaderController(user: user), to: self.headerView)
-                    self.addChildVC(childVC: RPRepoItemController(user: user), to: self.itemViewOne)
-                    self.addChildVC(childVC: RPFollowerItemController(user: user), to: self.itemViewTwo)
-                    //step 8 add date lable with convert function
-                    self.dateLable.text = "GitHub member since \(user.createdAt.convertToDisplayFormat())"
+                    //step 5 call new function
+                    self.setupElements(with: user)
                 }
             case .failure(_):
                 self.presentRPAlertOnMainThread(title: RPError.GHAlertMessageWrong.rawValue, message: RPError.GHAlertUnableTo.rawValue, buttonTitle: RPError.GHOKText.rawValue)
@@ -54,10 +56,22 @@ class UserInfoController: UIViewController {
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-    func setupUI() {
+    //step 4 refactor into method can set delegates
+    private func setupElements(with user: User) {
+        let repoItemController = RPRepoItemController(user: user)
+        repoItemController.delegate = self
+        let followerItemController = RPFollowerItemController(user: user)
+        followerItemController.delegate = self
+        
+        self.addChildVC(childVC: UIserInfoHeaderController(user: user), to: self.headerView)
+        self.addChildVC(childVC: repoItemController, to: self.itemViewOne)
+        self.addChildVC(childVC: followerItemController, to: self.itemViewTwo)
+        self.dateLable.text = "GitHub member since \(user.createdAt.convertToDisplayFormat())"
+    }
+    
+    private func setupUI() {
         let padding: CGFloat    = 20
         let itemHeight: CGFloat = 140
-        //step 2 add to itemsViews array
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLable]
         
         for itemView in itemViews {
@@ -78,7 +92,7 @@ class UserInfoController: UIViewController {
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
-            //step 3 add constraints that are not in itemViews
+  
             dateLable.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
             dateLable.heightAnchor.constraint(equalToConstant: 18)
         ])
@@ -89,5 +103,28 @@ class UserInfoController: UIViewController {
         containterView.addSubview(childVC.view)
         childVC.view.frame = containterView.bounds
         childVC.didMove(toParent: self)
+    }
+}
+// step 2 create extension and conform
+extension UserInfoController: UserInfoControllerDelegate {
+    func didTapGitHubProfile(user: User) {
+        //print("Testing didTap")
+        //step 8 create a url to pass to safari view controller
+        guard let url = URL(string: user.htmlUrl) else {
+            presentRPAlertOnMainThread(title: "Invalid URL", message: "The url is invalid", buttonTitle: RPError.GHOKText.rawValue)
+            return
+        }
+        
+        presentSafariController(with: url)
+ 
+    }
+    //step 14 implelent a function to use the delegate did tap followers
+    func didTapGetFollowers(user: User) {
+        guard user.followers != 0 else {
+            presentRPAlertOnMainThread(title: "User has no followers", message: "no followers", buttonTitle: RPError.GHOKText.rawValue)
+            return
+        }
+        delegate.didTapGetFollowers(username: user.login)
+        dismissVC()
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//step 6 create a date extension
+
 extension Date {
     func convertToMonthYearFormat() -> String {
         let dateFormatter = DateFormatter()

@@ -29,8 +29,7 @@ extension String {
     func removeWhitespaces() -> String {
         return components(separatedBy: .whitespaces).joined()
     }
-    //step 5 add a convert to date function
-    //https://nsdateformatter.com/ for specfic dates and time zones
+
     func convertToDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // this is the date format coming back from your call
@@ -40,8 +39,7 @@ extension String {
         return dateFormatter.date(from: self)
         
     }
-    
-    //step 7 convert to display format, combine the 2 extensions
+
     func convertToDisplayFormat() -> String {
         guard let date = self.convertToDate() else {return "N/A"}
         return date.convertToMonthYearFormat()

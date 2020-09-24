@@ -9,4 +9,5 @@
 import Foundation
 
 let BASEURL = "https://api.github.com/users/"
+let BASETRENDING = "https://ghapi.huchen.dev/repositories?language=swift&since=daily"
 
