@@ -45,6 +45,7 @@
 		1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A002514B47600931C90 /* RPImageView.swift */; };
 		1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A032514B95800931C90 /* ConfigureCell.swift */; };
 		1BDB5A062514E82000931C90 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB5A052514E82000931C90 /* Follower.swift */; };
+		1BF6A687251DCC9D005235E3 /* CustomFavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6A686251DCC9D005235E3 /* CustomFavouriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		1BDB5A002514B47600931C90 /* RPImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImageView.swift; sourceTree = "<group>"; };
 		1BDB5A032514B95800931C90 /* ConfigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCell.swift; sourceTree = "<group>"; };
 		1BDB5A052514E82000931C90 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		1BF6A686251DCC9D005235E3 /* CustomFavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFavouriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				1BDB59FE2514B3F500931C90 /* CustomFollowerCell.swift */,
 				1B7A9979251A91B4007D6E4B /* RPItemInfoView.swift */,
+				1BF6A686251DCC9D005235E3 /* CustomFavouriteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				1BDB5A042514B95800931C90 /* ConfigureCell.swift in Sources */,
 				1B378C77251A05A800E4A813 /* UIserInfoHeaderController.swift in Sources */,
 				1B9012D5251B738600380D4F /* RPFollowerItemController.swift in Sources */,
+				1BF6A687251DCC9D005235E3 /* CustomFavouriteCell.swift in Sources */,
 				1BDB5A012514B47600931C90 /* RPImageView.swift in Sources */,
 				1BDB59D6251212EC00931C90 /* MainTabBarController.swift in Sources */,
 				1B378C6E2518D03600E4A813 /* RPEmptyStateView.swift in Sources */,
