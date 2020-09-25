@@ -22,13 +22,10 @@ class RPUITextfield: UITextField {
     }
 
     private func configure() {
-        
         translatesAutoresizingMaskIntoConstraints = false
-        
         layer.cornerRadius = 10
         layer.borderWidth = 2
         layer.borderColor = UIColor.systemGray4.cgColor
-        
         textColor = .label
         tintColor = .label
         textAlignment = .center
@@ -37,7 +34,8 @@ class RPUITextfield: UITextField {
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
         returnKeyType = .go
+        //step 4 nice clear text field option
+        clearButtonMode = .whileEditing
         placeholder = "Enter a username"  
     }
-    
 }

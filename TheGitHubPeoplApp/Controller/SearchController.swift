@@ -22,6 +22,10 @@ class SearchController: UIViewController {
     let CallToActionButton = RPUIButton(backgroundColor: .systemGreen, title: ControllerItem.GHButtonText)
     var isUsernameEntered: Bool {return !usernameTextField.text!.isEmpty}
 
+    //step 2 we need access to the top of the image view
+    var logoImageViewTopContstraint: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,10 +37,12 @@ class SearchController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
          navigationController?.setNavigationBarHidden(true, animated: true)
+        //step 6 everytime reloads, we have a blank text field
+        usernameTextField.text = ""
     }
 
     private func dismissKeyboardTap() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
 
@@ -46,7 +52,9 @@ class SearchController: UIViewController {
             return
         }
         
-        let controller = FollowerListController()
+        //step 5 textfield bug fix
+        usernameTextField.resignFirstResponder()
+        let controller = FollowerListController(username: usernameTextField.text!)
         controller.username = usernameTextField.text
         controller.title = usernameTextField.text
         navigationController?.pushViewController(controller, animated: true)
@@ -59,6 +67,11 @@ class SearchController: UIViewController {
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        //LogoImageViewConstraint //step 3 //MARK:- iphoneSE bug fix
+        let topConstraintPadding: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        logoImageViewTopContstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintPadding)
+        logoImageViewTopContstraint.isActive = true
 
         //MARK:- TextField
         view.addSubview(usernameTextField)

@@ -28,6 +28,16 @@ class FollowerListController: UIViewController {
     var page: Int = 1
     var hasMoreFollowers = true
     
+    init(username: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     fileprivate let padding: CGFloat = 16
     
     override func viewDidLoad() {
