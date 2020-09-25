@@ -16,7 +16,6 @@ class MainTabBarController: UITabBarController {
 
         setupTC()
         //setupNavBarControllerCustom()
-        
     }
 
     private func setupNC(with rootViewController: UIViewController, title: String,tabBarSystemItem: UITabBarItem.SystemItem, tag: Int) -> UINavigationController {

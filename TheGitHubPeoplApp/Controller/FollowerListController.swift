@@ -55,18 +55,15 @@ class FollowerListController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFaves))
         navigationItem.rightBarButtonItem = addButton
     }
-    //step 1 create add to faves using persistance method
     @objc private func addToFaves() {
         showLoadingView()
         //step 2 netowrk call
         NetworkManager.shared.getUserInfo(for: username ?? "") { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
-            //step 3 switch on result
             switch result {
             case .success(let user):
                 let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                //step 4 use persistance
                 PersistanceManager.updateWith(favourite: favorite, actionType: .add) { [weak self] error in
                     guard let self = self else { return }
                     guard let error = error else {

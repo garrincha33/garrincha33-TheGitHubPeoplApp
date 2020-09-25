@@ -43,7 +43,6 @@ class UserInfoController: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.sync {
-                    //step 5 call new function
                     self.setupElements(with: user)
                 }
             case .failure(_):
