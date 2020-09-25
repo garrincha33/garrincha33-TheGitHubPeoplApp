@@ -64,7 +64,7 @@ extension UIViewController {
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
     }
-    //step 9 create safari function for passing urls
+
     func presentSafariController(with url: URL) {
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredControlTintColor = .systemGreen
