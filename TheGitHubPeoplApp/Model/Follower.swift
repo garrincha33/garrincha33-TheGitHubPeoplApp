@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//step 4 renamed to follower
+
 struct Follower: Codable, Hashable {
     var login: String?
     var avatarUrl: String?
