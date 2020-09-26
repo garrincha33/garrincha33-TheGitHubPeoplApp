@@ -24,6 +24,7 @@ class FavouritesController: UIViewController {
         getFavorites()
     }
 
+
     func configureViewController() {
         view.backgroundColor = .systemBackground
         title = "Favorites"
@@ -75,14 +76,14 @@ extension FavouritesController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let favorite    = favorites[indexPath.row]
-        let destVC      = FollowerListController(username: favorite.login ?? "")
-        navigationController?.pushViewController(destVC, animated: true)
+        let controller = UserInfoController()
+        let fave    = favorites[indexPath.row]
+        controller.username = fave.login
+        present(controller, animated: true, completion: nil)
     }
     
     //MARK:-swipe to delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         guard editingStyle == .delete else { return }
         let favorite = favorites[indexPath.row]
         favorites.remove(at: indexPath.row)
