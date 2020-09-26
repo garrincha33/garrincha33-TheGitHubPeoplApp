@@ -47,6 +47,7 @@ class FollowerListController: UIViewController {
         configureSearchController()
         configureDataSource()
         makeNetworkCall(username: username ?? "", page: page)
+
         
     }
     
@@ -67,7 +68,6 @@ class FollowerListController: UIViewController {
     }
     @objc private func addToFaves() {
         showLoadingView()
-        //step 2 netowrk call
         NetworkManager.shared.getUserInfo(for: username ?? "") { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
@@ -87,9 +87,7 @@ class FollowerListController: UIViewController {
             }
         }
     }
-    
-    
-    
+
     private func makeNetworkCall(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in

@@ -44,8 +44,7 @@ class RPInfoViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }
-    
-    //step 6 create actions for button, create a blank stub set in indivual classes
+
     private func configureActionButton() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
