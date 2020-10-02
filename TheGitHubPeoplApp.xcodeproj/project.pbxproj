@@ -20,6 +20,8 @@
 		1B9012D8251BEB7D00380D4F /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9012D7251BEB7D00380D4F /* Date+Ext.swift */; };
 		1B9012DB251CD9C500380D4F /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9012DA251CD9C500380D4F /* PersistanceManager.swift */; };
 		1BD479F9251E20EB005497BE /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD479F8251E20EB005497BE /* ScreenSize.swift */; };
+		1BD479FD251F3168005497BE /* FollowerListController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD479FC251F3168005497BE /* FollowerListController+Ext.swift */; };
+		1BD47A00251F3231005497BE /* FavouritesController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD479FF251F3231005497BE /* FavouritesController+Ext.swift */; };
 		1BDB59BF2511FFDE00931C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */; };
 		1BDB59C12511FFDE00931C90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */; };
 		1BDB59C32511FFDE00931C90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDB59C22511FFDE00931C90 /* ViewController.swift */; };
@@ -63,6 +65,8 @@
 		1B9012D7251BEB7D00380D4F /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		1B9012DA251CD9C500380D4F /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		1BD479F8251E20EB005497BE /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		1BD479FC251F3168005497BE /* FollowerListController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowerListController+Ext.swift"; sourceTree = "<group>"; };
+		1BD479FF251F3231005497BE /* FavouritesController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesController+Ext.swift"; sourceTree = "<group>"; };
 		1BDB59BB2511FFDE00931C90 /* TheGitHubPeoplApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGitHubPeoplApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BDB59BE2511FFDE00931C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BDB59C02511FFDE00931C90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 			children = (
 				1BDB59E62513496800931C90 /* String+Ext.swift */,
 				1BDB59EE2513737400931C90 /* UIViewController+Ext.swift */,
+				1BD479FC251F3168005497BE /* FollowerListController+Ext.swift */,
+				1BD479FF251F3231005497BE /* FavouritesController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD479FD251F3168005497BE /* FollowerListController+Ext.swift in Sources */,
+				1BD47A00251F3231005497BE /* FavouritesController+Ext.swift in Sources */,
 				1BDB59F62513ADED00931C90 /* NetworkManager.swift in Sources */,
 				1BDB59F82513AE1900931C90 /* Constants.swift in Sources */,
 				1B7A997D251B6A3B007D6E4B /* RPInfoViewController.swift in Sources */,
@@ -495,12 +503,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = UMQAGMF379;
 				INFOPLIST_FILE = TheGitHubPeoplApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twisted.TheGitHubPeoplApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -513,12 +523,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = UMQAGMF379;
 				INFOPLIST_FILE = TheGitHubPeoplApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twisted.TheGitHubPeoplApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

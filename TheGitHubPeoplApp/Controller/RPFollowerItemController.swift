@@ -17,11 +17,12 @@ class RPFollowerItemController: RPInfoViewController {
     }
 
     private func configureItems() {
-        itemInfoControllerOne.set(itemInfoType: .followers, with: user.followers)
-        itemInfoControllerTwo.set(itemInfoType: .following, with: user.following)
+        itemInfoControllerOne.set(itemInfoType: .followers, with: user?.followers ?? 0)
+        itemInfoControllerTwo.set(itemInfoType: .following, with: user?.following ?? 0)
         actionButton.set(to: .systemGreen, title: "Get Followers")
     }
     override func actionButtonTapped() {
+        guard let user = user else {return}
         delegate.didTapGetFollowers(user: user)
     }
     

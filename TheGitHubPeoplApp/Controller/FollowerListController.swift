@@ -38,7 +38,7 @@ class FollowerListController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate let padding: CGFloat = 16
+    private let padding: CGFloat = 16
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,6 @@ class FollowerListController: UIViewController {
         configureSearchController()
         configureDataSource()
         makeNetworkCall(username: username ?? "", page: page)
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +86,7 @@ class FollowerListController: UIViewController {
         }
     }
 
-    private func makeNetworkCall(username: String, page: Int) {
+     func makeNetworkCall(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else {return}
@@ -114,7 +112,7 @@ class FollowerListController: UIViewController {
         }
     }
     
-    func configure<T: ConfigureCell>(_ cellType: T.Type, with app: Follower, for indexPath: IndexPath) -> T {
+    private func configure<T: ConfigureCell>(_ cellType: T.Type, with app: Follower, for indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
             fatalError("Unable to dequeue \(cellType)")
         }
@@ -130,7 +128,7 @@ class FollowerListController: UIViewController {
         })
     }
     
-    private func updateData(on followers: [Follower]) {
+     func updateData(on followers: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
@@ -150,55 +148,3 @@ class FollowerListController: UIViewController {
     }
 }
 
-extension FollowerListController: UICollectionViewDelegate {
-    //MARK:- pagination
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let offSetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let screenHeight = scrollView.frame.size.height
-        
-        if offSetY > contentHeight - screenHeight {
-            guard hasMoreFollowers else {return}
-            page += 1
-            makeNetworkCall(username: username ?? "", page: page)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = UserInfoController()
-        let activeArray = isSearching ? followersFiltered : followers
-        let follower = activeArray[indexPath.row]
-        controller.username = follower.login
-        controller.delegate = self
-        let navController = UINavigationController(rootViewController: controller)
-        present(navController, animated: true)
-    }
-}
-
-extension FollowerListController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
-        isSearching = true
-        followersFiltered = (filter.isEmpty) ? followers : followers.filter ({$0.login?.localizedCaseInsensitiveContains(filter) == true})
-        DispatchQueue.main.async { //adding this is in weird warnings
-            self.updateData(on: self.followersFiltered)
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        updateData(on: followers)
-        isSearching = false
-    }
-}
-
-extension FollowerListController: FollowerListControllerDelegate {
-    func didTapGetFollowers(username: String) {
-        self.username = username
-        title = username
-        page = 1
-        followers.removeAll()
-        followersFiltered.removeAll()
-        collectionView.setContentOffset(.zero, animated: true)
-        makeNetworkCall(username: username, page: page)
-    }
-}

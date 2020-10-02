@@ -16,12 +16,13 @@ class RPRepoItemController: RPInfoViewController {
     }
 
     private func configureItems() {
-        itemInfoControllerOne.set(itemInfoType: .repos, with: user.publicRepos)
-        itemInfoControllerTwo.set(itemInfoType: .gists, with: user.publicGists)
+        itemInfoControllerOne.set(itemInfoType: .repos, with: user?.publicRepos ?? 0)
+        itemInfoControllerTwo.set(itemInfoType: .gists, with: user?.publicGists ?? 0)
         actionButton.set(to: .systemPurple, title: "GitHub Profile")
     }
 
     override func actionButtonTapped() {
+        guard let user = user else {return}
         delegate.didTapGitHubProfile(user: user)
     }
     

@@ -118,7 +118,8 @@ extension UserInfoController: UserInfoControllerDelegate {
             presentRPAlertOnMainThread(title: "User has no followers", message: "no followers", buttonTitle: RPError.GHOKText.rawValue)
             return
         }
-        delegate.didTapGetFollowers(username: user.login)
+
+        delegate.didTapGetFollowers(username: user.login ?? "")
         dismissVC()
     }
 }
