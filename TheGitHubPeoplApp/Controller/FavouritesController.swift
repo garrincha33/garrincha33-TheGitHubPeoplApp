@@ -8,10 +8,13 @@
 
 import UIKit
 
-class FavouritesController: UIViewController {
+class FavouritesController: UIViewController, FollowerListControllerDelegate {
 
     let tableView = UITableView()
     var favorites: [Follower] = []
+    var followers: [Follower] = []
+    weak var delegate: FollowerListControllerDelegate!
+    var username: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,29 @@ class FavouritesController: UIViewController {
         super.viewWillAppear(animated)
         getFavorites()
     }
+    
+    func makeNetworkCall(username: String, page: Int) {
+       showLoadingView()
+       NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+           guard let self = self else {return}
+           DispatchQueue.main.async {
+               self.dismissLoadingView()
+           }
+           switch result {
+           case .success(let followers):
+            self.followers.append(contentsOf: followers)
+               if self.followers.isEmpty {
+                   let message = "This user doesnt have any followers as yet 😀"
+                   DispatchQueue.main.sync {
+                       self.showEmptyStateView(message: message, in: self.view)
+                       return
+                   }
+               }
+                case .failure(let error):
+               self.presentRPAlertOnMainThread(title: RPError.GHAlertMessageWrong.rawValue, message: error.rawValue, buttonTitle: RPError.GHOKText.rawValue)
+           }
+       }
+   }
 
 
     func configureViewController() {
@@ -61,37 +87,10 @@ class FavouritesController: UIViewController {
             }
         }
     }
-}
-
-extension FavouritesController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites.count
-    }
- 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomFavouriteCell.reuseIdentifier) as! CustomFavouriteCell
-        let favorite = favorites[indexPath.row]
-        cell.configure(with: favorite)
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = UserInfoController()
-        let fave    = favorites[indexPath.row]
-        controller.username = fave.login
-        present(controller, animated: true, completion: nil)
-    }
     
-    //MARK:-swipe to delete
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-        let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .left)
-        PersistanceManager.updateWith(favourite: favorite, actionType: .remove) { [weak self] error in
-            guard let self = self else { return }
-            guard let error = error else { return }
-            self.presentRPAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
-        }
+    func didTapGetFollowers(username: String) {
+        print("dispaly message \(username)")
+        presentRPAlertOnMainThread(title: RPError.GHAlertUnableTo.rawValue, message: "you already have the followers for \(username) 😥", buttonTitle: RPError.GHOKText.rawValue)
     }
 }
+

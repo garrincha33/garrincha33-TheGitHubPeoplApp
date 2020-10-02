@@ -14,7 +14,7 @@ class RPInfoViewController: UIViewController {
     let itemInfoControllerTwo = RPItemInfoView()
     @objc let actionButton = RPUIButton()
 
-    var user: User!
+    var user: User?
     weak var delegate: UserInfoControllerDelegate!
     
     init(user: User) {

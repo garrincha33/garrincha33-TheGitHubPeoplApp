@@ -88,4 +88,45 @@ class NetworkManager {
         task.resume()
     }
     
+    
+    
+    
+    //GENERIC CALL
+    func makeUrlRequest<T: Any>(for username: String, page: Int?, completed: @escaping (Result<T, RPError>) -> Void) {
+        let endpoint = BASEURL + "\(username)"
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.RPNetworkErrorConnectionMessage))
+            return
+        }
+         let urlTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+             guard error == nil else {
+                completed(.failure(.RPNetworkErrorData))
+                 return
+             }
+
+             guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
+                 completed(.failure(.RPNetworkErrorServerMessage))
+                 return
+             }
+
+             guard let data = data else {
+                completed(.failure(.RPNetworkErrorData))
+                 return
+             }
+
+            guard let decodedData: T = self.decodedData(data) as? T else {
+                completed(.failure(.RPNetworkErrorData))
+                 return
+             }
+
+             completed(.success(decodedData))
+         }
+
+         urlTask.resume()
+     }
+    
+    private func decodedData(_ data: Data) -> String? {
+            return String(data: data, encoding: .utf8)
+        }
 }
