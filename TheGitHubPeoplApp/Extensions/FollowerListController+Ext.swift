@@ -9,6 +9,8 @@
 import UIKit
 
 extension FollowerListController: UICollectionViewDelegate {
+
+    // CODE REVIEW: Why not willDisplayCell instead?
     //MARK:- pagination
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offSetY = scrollView.contentOffset.y
@@ -16,8 +18,12 @@ extension FollowerListController: UICollectionViewDelegate {
         let screenHeight = scrollView.frame.size.height
         
         if offSetY > contentHeight - screenHeight {
-            guard hasMoreFollowers else {return}
+            guard hasMoreFollowers else { return }
+            // CODE REVIEW: By making this extension, you are effectively forcing the page to be public
             page += 1
+            // CODE REVIEW: Naming convention: makeNetworkCall is ambiguous
+            // CODE REVIEW: if I already know the page, why do I have to pass it as a parameter?
+            // CODE REVIEW: What would happen if there was an empty username? Why do you want to pass an empty string and call this method with the empty string?
             makeNetworkCall(username: username ?? "", page: page)
         }
     }

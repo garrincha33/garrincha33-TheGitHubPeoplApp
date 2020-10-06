@@ -11,7 +11,7 @@ import UIKit
 class NetworkManager {
 
     static let shared = NetworkManager()
-    let imageCache = NSCache<NSString, UIImage>()
+    let imageCache = NSCache<NSString, UIImage>() // CODE REVIEW: why not private?
     private init() {}
 
     func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], RPError>) -> Void) {
@@ -22,7 +22,9 @@ class NetworkManager {
             completed(.failure(.RPNetworkErrorConnectionMessage))
             return
         }
-        
+
+        // CODE REVIEW: couldn't you have a single method for handling requests and then only call it with a few parameters?
+        // getFollowers and getUserInfo are very similar
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let _ = error {
                 completed(.failure(.RPNetworkErrorUserMessage))

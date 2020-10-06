@@ -8,6 +8,7 @@
 
 import UIKit
 
+// CODE REVIEW: UIHelper is such an ambiguous name. If you need a UICollectionViewFlowLayout factory, follow a Factory pattern.
 struct UIHelper {
 
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {

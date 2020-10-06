@@ -38,6 +38,8 @@ extension FavouritesController: UITableViewDataSource, UITableViewDelegate  {
         PersistanceManager.updateWith(favourite: favorite, actionType: .remove) { [weak self] error in
             guard let self = self else { return }
             guard let error = error else { return }
+            // CODE REVIEW: Ok, so you first update the UI and then try to work with the PersistanceManager. And if it fails, you only display an error?
+            // CODE REVIEW: Doesn't it mean that the row shouldn't been removed?
             self.presentRPAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
         }
     }

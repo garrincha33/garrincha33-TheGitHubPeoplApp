@@ -15,7 +15,7 @@ enum ScreenSize {
     static let minLength    = min(ScreenSize.width, ScreenSize.height)
 }
 
-
+// CODE REVIEW: Why don't you define the device types as cases in the enum if you have to do this?
 enum DeviceTypes {
     static let idiom                    = UIDevice.current.userInterfaceIdiom
     static let nativeScale              = UIScreen.main.nativeScale

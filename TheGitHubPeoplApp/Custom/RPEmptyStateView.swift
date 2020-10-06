@@ -27,7 +27,8 @@ class RPEmptyStateView: UIView {
         messageLable.text = message
         configure()
     }
-    
+
+    // CODE REVIEW: Naming: I'd use setup instead of configure if we already use configure for passing on data. Consistency.
     private func configure() {
         addSubview(messageLable)
         addSubview(logoImageView)

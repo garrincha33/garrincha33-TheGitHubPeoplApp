@@ -111,7 +111,8 @@ class FollowerListController: UIViewController {
             }
         }
     }
-    
+
+    // CODE REVIEW: I don't think you use this method...
     private func configure<T: ConfigureCell>(_ cellType: T.Type, with app: Follower, for indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
             fatalError("Unable to dequeue \(cellType)")
@@ -121,6 +122,7 @@ class FollowerListController: UIViewController {
     }
     
     private func configureDataSource() {
+        // CODE REVIEW: very nice use of UICollectionViewDiffableDataSource!
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomFollowerCell.reuseIdentifier, for: indexPath) as! CustomFollowerCell
             cell.configure(with: follower)

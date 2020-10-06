@@ -72,6 +72,7 @@ class SearchController: UIViewController {
         //MARK:- TextField
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self
+        // CODE REVIEW: If you use the constant of 50 points so often, don't you think it deserves a name?
         usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48).isActive = true
         usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true

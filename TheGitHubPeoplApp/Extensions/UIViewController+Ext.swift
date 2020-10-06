@@ -9,6 +9,7 @@
 import UIKit
 import SafariServices
 
+// CODE REVIEW: Hm... global var... Why?
 private var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
 
 extension UIViewController {

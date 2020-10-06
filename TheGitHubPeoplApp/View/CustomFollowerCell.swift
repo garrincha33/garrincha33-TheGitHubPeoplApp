@@ -12,6 +12,7 @@ class CustomFollowerCell: UICollectionViewCell, ConfigureCell {
     
     func configure(with followers: Follower) {
         usernameLable.text = followers.login
+        // CODE REVIEW: Do you really want to download an image from an empty URL?
         avatarImageView.downloadImage(from: followers.avatarUrl ?? "")
     }
     

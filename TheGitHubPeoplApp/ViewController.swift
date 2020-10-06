@@ -8,6 +8,8 @@
 
 import UIKit
 
+// CODE REVIEW: What's the purpose of this View Controller?
+// CODE REVIEW: Naming convention - ViewController doesn't tell me what this class does.
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

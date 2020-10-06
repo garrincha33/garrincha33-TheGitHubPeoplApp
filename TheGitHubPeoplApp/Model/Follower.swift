@@ -9,6 +9,7 @@
 import Foundation
 
 struct Follower: Codable, Hashable {
+    // CODE REVIEW: What's the purpose of a Follower with no login and no avatarUrl?
     var login: String?
     var avatarUrl: String?
 }

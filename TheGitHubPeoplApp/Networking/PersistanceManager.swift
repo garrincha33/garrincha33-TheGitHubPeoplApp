@@ -12,6 +12,7 @@ enum PersistanceActionType {
     case add, remove
 }
 
+// CODE REVIEW: Why is a PersistanceManager an enum? NetworkManager is a singleton class. Let's keep the patterns consistent throughout the cocebase.
 enum PersistanceManager {
     enum Keys {
         static let favourties = "favourites"

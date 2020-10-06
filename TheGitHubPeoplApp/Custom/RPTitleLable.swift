@@ -8,6 +8,8 @@
 
 import UIKit
 
+// CODE REVIEW: typo -  RPTitleLable -> RPTitleLabel
+// CODE REVIEW: Similar to favourite vs favorite. Unfortunately for the British, the USA is now a dominant power in the world, so in many areas including iOS development, the American English is the technical standard.
 class RPTitleLable: UILabel {
     
     override init(frame: CGRect) {

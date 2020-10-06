@@ -8,6 +8,7 @@
 
 import Foundation
 
+// CODE REVIEW: This is ok, the only thing I'd note here is missing localization.
 enum RPError: String, Error {
     case GHLogo = "gh-logo"
     case GHButtonText = "Get Followers"

@@ -36,6 +36,7 @@ class RPUITextfield: UITextField {
         returnKeyType = .go
         //step 4 nice clear text field option
         clearButtonMode = .whileEditing
+        // CODE REVIEW: Does it mean that all RPUITextfield have a "Enter a username" placeholder?
         placeholder = "Enter a username"  
     }
 }

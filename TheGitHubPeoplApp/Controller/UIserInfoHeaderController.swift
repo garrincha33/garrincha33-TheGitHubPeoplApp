@@ -17,7 +17,8 @@ class UIserInfoHeaderController: UIViewController {
     let locationLable = RPSecondaryTitleLable(fontSize: 18)
     let bioLable = RPBodyLable(textAlignment: .left)
 
-    var user: User!
+    // CODE REVIEW: Isn't it so much better to not use the force unwraps if possible?
+    var user: User
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,8 @@ class UIserInfoHeaderController: UIViewController {
     }
     
     init(user: User) {
-        super.init(nibName: nil, bundle: nil)
         self.user = user
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
