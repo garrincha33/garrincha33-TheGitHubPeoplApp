@@ -8,6 +8,7 @@
 
 import Foundation
 
+// CODE REVIEW: It is advisable to wrap constants into an enum.
 let BASEURL = "https://api.github.com/users/"
 let BASETRENDING = "https://ghapi.huchen.dev/repositories?language=swift&since=daily"
 

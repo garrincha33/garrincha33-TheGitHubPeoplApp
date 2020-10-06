@@ -36,6 +36,7 @@ class CustomFavouriteCell: UITableViewCell, ConfigureCell {
         addSubview(usernameLable)
         accessoryType = .disclosureIndicator
         let padding: CGFloat = 12
+        // CODE REVIEW: When submitting a PR, I'd get rid of unnecessary code snippets that have been previously commented out.
 //        avatarImage.translatesAutoresizingMaskIntoConstraints = false
 //        usernameLable.translatesAutoresizingMaskIntoConstraints = false
         

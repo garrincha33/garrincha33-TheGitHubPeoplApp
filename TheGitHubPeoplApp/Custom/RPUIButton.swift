@@ -9,7 +9,7 @@
 import UIKit
 
 
-
+// CODE REVIEW: Many companies do not prefer the smurf prefixes 'RP' something. The trend is to move away from these. UIKit is a legacy framework btw.
 class RPUIButton: UIButton {
     
     override init(frame: CGRect) {
@@ -20,6 +20,7 @@ class RPUIButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        // CODE REVIEW: does it mean I cannot use this class in an XIB?
     }
     
     

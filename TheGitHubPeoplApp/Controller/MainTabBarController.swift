@@ -18,7 +18,8 @@ class MainTabBarController: UITabBarController {
         //setupNavBarControllerCustom()
     }
 
-    private func setupNC(with rootViewController: UIViewController, title: String,tabBarSystemItem: UITabBarItem.SystemItem, tag: Int) -> UINavigationController {
+    // CODE REVIEW: Naming: setupNC -> setupNavigationController. Clarity over brevity.
+    private func setupNC(with rootViewController: UIViewController, title: String, tabBarSystemItem: UITabBarItem.SystemItem, tag: Int) -> UINavigationController {
         let navController = UINavigationController(rootViewController: rootViewController)
         rootViewController.title = title
         navigationController?.tabBarItem.title = title

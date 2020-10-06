@@ -10,8 +10,8 @@ import UIKit
 
 class RPImageView: UIImageView {
     
-    let placeHolderImage = UIImage(named: "avatar-placeholder")
-    let cache = NetworkManager.shared.imageCache
+    let placeHolderImage = UIImage(named: "avatar-placeholder") // CODE REVIEW: placeHolderImage is an optional. Can we put these constants to a constants file?
+    let cache = NetworkManager.shared.imageCache // CODE REVIEW: I'd at least make this private if you don't intend to use it outside of the class.
     
     override init(frame: CGRect) {
         super.init(frame: frame)

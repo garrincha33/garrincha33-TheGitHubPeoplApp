@@ -8,11 +8,15 @@
 
 import UIKit
 
+// CODE REVIEW: Naming: FavouritesController -> FavouritesViewController is the norm.
 class FavouritesController: UIViewController, FollowerListControllerDelegate {
 
     let tableView = UITableView()
+    // CODE REVIEW: Ha! Now it's favorites (american)
+    // Why public?
     var favorites: [Follower] = []
     var followers: [Follower] = []
+    // CODE REVIEW: Why force unwrap?
     weak var delegate: FollowerListControllerDelegate!
     var username: String?
     
@@ -29,8 +33,11 @@ class FavouritesController: UIViewController, FollowerListControllerDelegate {
     
     func makeNetworkCall(username: String, page: Int) {
        showLoadingView()
+        // CODE REVIEW: nice, we have a [weak self] here!
        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
            guard let self = self else {return}
+        // CODE REVIEW: I'd suggest wrapping the whole callback into DispatchQueue.main.async
+        // manipulating the followers outside of the main thread could potentially create some inconsistencies. Which other threads you use to work with followers array?
            DispatchQueue.main.async {
                self.dismissLoadingView()
            }

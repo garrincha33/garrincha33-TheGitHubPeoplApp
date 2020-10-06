@@ -20,7 +20,8 @@ class UserInfoController: UIViewController {
     let itemViewTwo = UIView()
     let dateLable = RPBodyLable(textAlignment: .center)
     var itemViews: [UIView] = []
-    
+
+    // CODE REVIEW: Why do you store the username here like this. Is this the only model? I'd suggest using structs if it isn't.
     var username: String!
     weak var delegate: FollowerListControllerDelegate!
 

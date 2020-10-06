@@ -1,4 +1,5 @@
 
+// CODE REVIEW: No header, I would refrain from using abbreviations like this: String+Ext.swift
 import Foundation
 
 extension String {
@@ -30,6 +31,7 @@ extension String {
         return components(separatedBy: .whitespaces).joined()
     }
 
+    // CODE REVIEW: convert to date? Shouldn't it at least make the dateFormat, locale and timezone as parameters? Because just by reading the func name I couldn't tell what would be the output.
     func convertToDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // this is the date format coming back from your call

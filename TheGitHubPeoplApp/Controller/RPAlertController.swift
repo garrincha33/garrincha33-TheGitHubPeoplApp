@@ -56,10 +56,10 @@ class RPAlertController: UIViewController {
         view.addSubview(containerView)
         
         NSLayoutConstraint.activate([
-        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        containerView.widthAnchor.constraint(equalToConstant: 280),
-        containerView.heightAnchor.constraint(equalToConstant: 280)
+            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            containerView.widthAnchor.constraint(equalToConstant: 280),
+            containerView.heightAnchor.constraint(equalToConstant: 280)
         ])
         
         containerView.addSubview(titleLable)

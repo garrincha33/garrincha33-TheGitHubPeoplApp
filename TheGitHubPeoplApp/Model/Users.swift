@@ -16,8 +16,8 @@ struct User: Codable {
     var bio: String?
     var publicRepos: Int
     var publicGists: Int
-    var htmlUrl: String
+    var htmlUrl: String // CODE REVIEW: Naming convention: I usually prefer URL over Url, but that's up to you.
     var following: Int
-    var followers: Int
-    var createdAt: String
+    var followers: Int // CODE REVIEW: Naming convention: followers -> followersCount?
+    var createdAt: String // CODE REVIEW: Why is this a string and not a Date?
 }

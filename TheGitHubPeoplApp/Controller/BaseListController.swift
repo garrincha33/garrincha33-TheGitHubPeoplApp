@@ -8,6 +8,7 @@
 
 import UIKit
 
+// CODE REVIEW: I don't think this class is being used
 class BaseListController: UICollectionViewController {
     
     init() {
